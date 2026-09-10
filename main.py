@@ -1,5 +1,6 @@
 def main():
-    print("NLP Zahir Project")
+    from src.parser import run
+    run()
 
 
 if __name__ == "__main__":
