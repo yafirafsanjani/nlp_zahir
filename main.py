@@ -1,4 +1,4 @@
-def main():
+﻿def main():
     import sys
 
     if len(sys.argv) > 1 and sys.argv[1] == "explore":
@@ -22,6 +22,12 @@ def main():
         run()
     elif len(sys.argv) > 1 and sys.argv[1] == "remote":
         from src.remote import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("category", "categories", "explore-category"):
+        from src.category_exploration import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("label", "labeling", "categories-label"):
+        from src.category_labeling import run
         run()
     else:
         from src.parser import run
