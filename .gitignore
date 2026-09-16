@@ -1,4 +1,4 @@
-# Virtual environment
+﻿# Virtual environment
 .venv/
 venv/
 env/
@@ -7,7 +7,7 @@ env/
 __pycache__/
 *.py[cod]
 
-# Private WhatsApp data
+# Private WhatsApp data (Keamanan & Privasi)
 data/raw/
 data/processed/
 
@@ -25,3 +25,6 @@ data/output/
 
 # VS Code
 .vscode/
+
+# AI Agent Memory / Local Instruction (Tidak di-upload ke GitHub)
+AGENTS.md

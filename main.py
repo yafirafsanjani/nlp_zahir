@@ -29,6 +29,44 @@
     elif len(sys.argv) > 1 and sys.argv[1] in ("label", "labeling", "categories-label"):
         from src.category_labeling import run
         run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("preprocess", "preprocessing"):
+        from src.preprocessing import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("normalize", "normalization"):
+        from src.normalization import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("features", "tfidf", "feature-extraction"):
+        from src.features import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("split", "train-test-split"):
+        from src.split import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("train", "training"):
+        from src.train import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("tune", "tuning", "optimize"):
+        from src.tuning import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("evaluate", "evaluation", "eval"):
+        from src.evaluation import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("select", "selection", "save-best"):
+        from src.selection import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("predict", "inference", "prediksi"):
+        from src.predict import run
+        arg = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else None
+        run(arg)
+    elif len(sys.argv) > 1 and sys.argv[1] in ("consolidate", "consolidation", "combine"):
+        from src.consolidation import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("export", "exporting", "report"):
+        from src.export import run
+        run()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("run-all", "pipeline", "retrain", "all"):
+        from src.pipeline import run
+        arg = sys.argv[2] if len(sys.argv) > 2 else None
+        run(arg)
     else:
         from src.parser import run
         run()
