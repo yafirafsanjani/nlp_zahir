@@ -30,6 +30,18 @@ def load_data():
 
     return cat_rows, norm_rows
 
+def build_full_conversation(msgs):
+    """Susun transkrip lengkap satu sub-percakapan, baris per pesan."""
+    lines = []
+    for m in msgs:
+        role = m.get("role") or m.get("pengirim", "")
+        ts = f"{m.get('tanggal', '')} {m.get('waktu', '')}".strip()
+        text = (m.get("percakapan") or "").strip().replace("\n", " ")
+        prefix = f"[{ts}] {role}" if ts else f"[{role}]"
+        lines.append(f"{prefix}: {text}")
+    return "\n".join(lines)
+
+
 def consolidate_master_dataset(cat_rows, norm_rows):
     # Mapping teks normalisasi per sub_id
     norm_map = {r["sub_conversation_id"]: r for r in norm_rows}
@@ -60,9 +72,6 @@ def consolidate_master_dataset(cat_rows, norm_rows):
         has_credentials = any(m.get("contains_credentials") == "True" for m in msgs)
         has_media_file = any(m.get("has_media") == "True" for m in msgs)
 
-        first_client_text = client_msgs[0]["percakapan"] if client_msgs else msgs[0]["percakapan"]
-        first_client_text_clean = first_client_text.strip().replace("\n", " ")
-
         # Ambil teks normalisasi untuk inferensi model ML
         norm_info = norm_map.get(sub_id, {})
         normalized_text = norm_info.get("normalized_text", "")
@@ -90,7 +99,7 @@ def consolidate_master_dataset(cat_rows, norm_rows):
             "kategori_kendala_ml_predicted": predicted_cat,
             "prediction_confidence": f"{confidence_score:.1f}%",
             "prediction_match": "MATCH" if is_match else "DIFFER",
-            "first_complaint_snippet": first_client_text_clean[:120],
+            "full_conversation": build_full_conversation(msgs),
         })
 
     return master_records
@@ -114,7 +123,7 @@ def save_master_csv(records, output_path):
         "kategori_kendala_ml_predicted",
         "prediction_confidence",
         "prediction_match",
-        "first_complaint_snippet",
+        "full_conversation",
     ]
     with open(output_path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -157,7 +166,9 @@ def validate(records):
         print(f"  - Response : {r['client_response']} | Remote: {r['penanganan_remote']}")
         print(f"  - Kendala  : {r['kategori_kendala_ground_truth']}")
         print(f"  - AI Pred  : {r['kategori_kendala_ml_predicted']} ({r['prediction_confidence']}) -> {r['prediction_match']}")
-        print(f"  - Pesan    : \"{r['first_complaint_snippet']}...\"")
+        preview = r['full_conversation'][:120].replace("\n", " ")
+        print(f"  - Perc.    : \"{preview}...\"")
+        print(f"  - Full     : {len(r['full_conversation'])} karakter (kolom full_conversation)")
     print()
 
 def run():

@@ -8,6 +8,7 @@ Mapping role:
     Zahir Surabaya     -> ADMIN
     CV Omega Sejahtera -> CLIENT
     riza Bravo Eterna  -> CLIENT
+    Rosaria / DAYARA   -> CLIENT
     SYSTEM             -> SYSTEM
 
 Pengirim baru yang belum terdaftar akan ditandai UNKNOWN
@@ -28,6 +29,7 @@ ROLE_MAP = {
     "Zahir Surabaya": "ADMIN",
     "CV Omega Sejahtera": "CLIENT",
     "riza Bravo Eterna": "CLIENT",
+    "Rosaria / DAYARA": "CLIENT",
     "SYSTEM": "SYSTEM",
 }
 

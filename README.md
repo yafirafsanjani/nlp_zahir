@@ -66,3 +66,71 @@ python main.py predict data/raw/chat/chat_1.txt
 - data/output/category_breakdown_report.csv: Tabel analitik korelasi silang kategori kendala terhadap remote dan respons.
 - data/output/final_project_report.txt: Laporan naratif analitik dan 3 rekomendasi bisnis strategis untuk tim manajemen Zahir.
 - models/best_model.pkl: Model AI terbaik siap produksi (*Tuned Gradient Boosting*, akurasi uji 70.6%).
+- config/taxonomy.json: **Single Source of Truth** taksonomi kategori kendala (definisi + keyword + frasa). Dipakai bersama oleh regex pipeline dan LLM labeling — nambah/mengubah kategori cukup edit file ini tanpa menyentuh kode.
+
+---
+
+## 🧠 Roadmap Ekspansi LLM (Peningkatan Ground Truth & Akurasi Model)
+
+Setelah pipeline inti rampung, dikembangkan skema **LLM-assisted labeling + active learning + dynamic taxonomy expansion** agar ground truth tidak lagi bergantung penuh pada regex.
+
+| Fase | Status | Deskripsi |
+|---|---|---|
+| **TAXON** - Taksonomi Config | ✅ Selesai | `config/taxonomy.json` + `src/taxonomy.py` (generate regex otomatis). Pattern kini tidak hardcoded. |
+| **LLM-L** - Modul LLM Labeling | ✅ Selesai | `src/llm_labeling.py`: prompt LLM (definisi + few-shot), output JSON `{kategori, confidence, evidence, perlu_kategori_baru, usulan_kategori}`, temperature=0, simpan `llm_labels.csv`. Mendukung OpenAI & Gemini + mode `--dry-run`. |
+| **RECON** - Reconciliation & Auto-Add Kategori | ✅ Selesai | `src/reconciliation.py`: klaster kandidat `flag_recon` (TF-IDF + connected components), LLM mengusulkan kategori baru, auto-add ke `taxonomy.json` bila ≥ `--min-samples`; laporan `reconciliation_results.csv`. |
+| **ACTIVE** - Active Learning Loop | ✅ Selesai | `src/active_learning.py`: model produksi memprediksi data training, `top-N` dokumen margin probabilitas terkecil (paling ragu) dikirim ulang ke LLM untuk relabel; label konsisten (KEEP/UPDATE) jadi ground truth final, konflik tanda REVIEW. Output `active_learning_results.csv` & `ground_truth_final.csv`. Dry-run: 30 relabel -> 9 UPDATE, 4 REVIEW. |
+| **CLI** - Integrasi `main.py` | ✅ Selesai | `python main.py llm-label / reconcile / active-learning / train-model`, flag `--skip-llm` (langsung train dari CSV label yang ada), `--labels ground_truth|llm|existing`, `--dry-run`, `--provider`, `--top-n`. Retrain idempotent berkat backup `chat_with_categories.backup.csv`. |
+
+**Cara pakai integrasi CLI (Fase 5):**
+```bash
+# 1. Labeling LLM pada data baru (buat llm_labels.csv)
+python main.py llm-label --provider openai            # real, butuh OPENAI_API_KEY
+python main.py llm-label --dry-run                    # simulasi tanpa API
+
+# 2. Reconciliation: usulkan & auto-add kategori baru
+python main.py reconcile --dry-run --min-samples 3
+
+# 3. Active learning: relabel dokumen paling ragu dari model
+python main.py active-learning --dry-run --top-n 30
+
+# 4. Retrain model dengan ground truth hasil LLM
+python main.py train-model                            # jalur penuh: LLM -> recon -> active -> train
+python main.py train-model --skip-llm                 # langsung train dari CSV label (ground_truth > llm > existing)
+python main.py train-model --skip-llm --labels llm    # paksa pakai label llm_labels.csv
+```
+
+**Cara pakai active learning (Fase 4):**
+```bash
+# Simulasi tanpa API (menguji alur)
+python src/active_learning.py --dry-run
+
+# Real - determinisasi label ragu (butuh OPENAI_API_KEY / GEMINI_API_KEY)
+python src/active_learning.py --provider openai --top-n 30
+```
+
+**Cara pakai reconciliation (Fase 3):**
+```bash
+# Simulasi tanpa API (menguji alur)
+python src/reconciliation.py --dry-run
+
+# Real - OpenAI/Gemini (butuh OPENAI_API_KEY / GEMINI_API_KEY)
+python src/reconciliation.py --provider openai --min-samples 5
+
+# Threshold lebih rendah (lebih agresif menambah kategori)
+python src/reconciliation.py --dry-run --min-samples 3
+```
+
+**Cara pakai LLM labeling (Fase 2):**
+```bash
+# Simulasi tanpa API (menguji alur)
+python src/llm_labeling.py --dry-run
+
+# Real - OpenAI (setenv OPENAI_API_KEY, opsi OPENAI_MODEL)
+python src/llm_labeling.py --provider openai
+
+# Real - Gemini (setenv GEMINI_API_KEY, opsi GEMINI_MODEL)
+python src/llm_labeling.py --provider gemini
+```
+
+**Prinsip desain**: LLM hanya dipakai pada fase pembentukan ground truth — **tidak pernah** di jalur prediksi harian. Saat model dirasa cukup, langkah LLM bisa dilompati (`--skip-llm`) dan langsung training dari label yang sudah ada.

@@ -11,37 +11,19 @@ import re
 from pathlib import Path
 from collections import Counter
 
+from src.taxonomy import (
+    build_category_dict,
+    get_fallback_category,
+)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 INPUT_FILE = PROCESSED_DIR / "chat_with_remotes.csv"
 
-# Definisi Kata Kunci Kandidat Kategori Kendala Zahir
-CATEGORY_PATTERNS = {
-    "DATABASE_SYSTEM_ERROR": re.compile(
-        r"\b(error|gagal|corrupt|damaged|firebird|database|db|crash|hang|close|keluar\s+sendiri|tertutup|tidak\s+bisa\s+buka|rtd|access\s+violation|table)\b",
-        re.IGNORECASE,
-    ),
-    "LISENSI_DONGLE_REGISTRASI": re.compile(
-        r"\b(dongle|lisensi|license|registrasi|serial\s*number|sn|no\s*seri|key|invalide|unregistered|expired|kadaluarsa|renew|langganan|kunci|aktivasi|kode\s+aktivasi)\b",
-        re.IGNORECASE,
-    ),
-    "TRANSAKSI_INPUT_DATA": re.compile(
-        r"\b(transaksi|input|simpan|save|retur|piutang|hutang|stok|stock|harga|jual|beli|pembayaran|faktur|nota|giro|kas|bank|saldo|selisih|penjualan|pembelian)\b",
-        re.IGNORECASE,
-    ),
-    "LAPORAN_REPORTING": re.compile(
-        r"\b(laporan|report|laba\s*rugi|neraca|buku\s*besar|cetak|print|preview|pdf|excel|export|sinkron|tidak\s+seimbang|menggantung)\b",
-        re.IGNORECASE,
-    ),
-    "INSTALASI_SETUP_NETWORK": re.compile(
-        r"\b(install|instal|instalasi|setup|update|upgrade|versi|version|server|client|ip\s*address|jaringan|network|connect|koneksi|anakan|induk)\b",
-        re.IGNORECASE,
-    ),
-    "PERTANYAAN_UMUM_FITUR": re.compile(
-        r"\b(tanya|tanyank|bagaimana\s+cara|gimana\s+cara|fitur|modul|panduan|cara\s+menggunakan|tutor|tutorial|bisa\s+nggak|bisa\s+gak|kenapa)\b",
-        re.IGNORECASE,
-    ),
-}
+# Definisi Kata Kunci Kandidat Kategori Kendala Zahir.
+# Berasal dari config/taxonomy.json (single source of truth) agar selalu sinkron.
+CATEGORY_PATTERNS = build_category_dict()
+FALLBACK = get_fallback_category()
 
 STOPWORDS = {
     "yang", "di", "ke", "dari", "ini", "itu", "dan", "atau", "untuk", "dengan", "pada", "adalah", "ada",
@@ -99,7 +81,7 @@ def analyze_categories(data):
                 matched_cats.append(cat)
 
         if not matched_cats:
-            matched_cats = ["LAINNYA_UNCATEGORIZED"]
+            matched_cats = [FALLBACK]
 
         conv_categories[cid] = matched_cats
 
@@ -144,7 +126,7 @@ def print_exploration_results(results):
         print(f"   - {cat:<30}: {count} percakapan ({pct:.1f}%)")
 
     print("\n6. CONTOH KELUHAN KLIEN PER KANDIDAT KATEGORI (MAX 2 SAMPLE)")
-    for cat in list(CATEGORY_PATTERNS.keys()) + ["LAINNYA_UNCATEGORIZED"]:
+    for cat in list(CATEGORY_PATTERNS.keys()) + [FALLBACK]:
         samples = [cid for cid, cats in results["conv_categories"].items() if cat in cats]
         if samples:
             print(f"\n   [Kategori: {cat}] ({len(samples)} percakapan)")

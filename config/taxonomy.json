@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "fallback_category": "LAINNYA_UNCATEGORIZED",
+  "categories": [
+    {
+      "name": "DATABASE_SYSTEM_ERROR",
+      "definition": "Keluhan terkait kesalahan/kerusakan sistem database Zahir: muncul pesan error, aplikasi gagal, database corrupt/rusak, Firebird, crash, hang, program keluar sendiri atau tertutup, tidak bisa dibuka, RTD, access violation.",
+      "keywords": [
+        "error", "gagal", "corrupt", "damaged", "firebird", "database",
+        "db", "crash", "hang", "close", "tertutup", "rtd", "table"
+      ],
+      "phrases": [
+        "keluar sendiri", "tidak bisa buka", "access violation"
+      ]
+    },
+    {
+      "name": "LISENSI_DONGLE_REGISTRASI",
+      "definition": "Keluhan terkait lisensi, dongle, registrasi dan aktivasi: dongle tidak terbaca, lisensi/license, serial number, kode aktivasi, unregistered, expired/kadaluarsa, perpanjangan langganan, kunci aplikasi.",
+      "keywords": [
+        "dongle", "lisensi", "license", "registrasi", "sn", "key",
+        "invalide", "unregistered", "expired", "kadaluarsa", "renew",
+        "langganan", "kunci", "aktivasi"
+      ],
+      "phrases": [
+        "serial number", "no seri", "kode aktivasi"
+      ]
+    },
+    {
+      "name": "INSTALASI_SETUP_NETWORK",
+      "definition": "Keluhan terkait pemasangan, pembaruan, dan jaringan: install/instalasi, setup, update/upgrade/versi, server-client, IP address, jaringan/network, koneksi, serta struktur anakan-induk pada Zahir.",
+      "keywords": [
+        "install", "instal", "instalasi", "setup", "update", "upgrade",
+        "versi", "version", "server", "client", "jaringan", "network",
+        "connect", "koneksi", "anakan", "induk"
+      ],
+      "phrases": [
+        "ip address"
+      ]
+    },
+    {
+      "name": "LAPORAN_REPORTING",
+      "definition": "Keluhan terkait pembuatan, pencetakan, dan export laporan: laporan/report, laba rugi, neraca, buku besar, cetak/print, preview, PDF, Excel, export, sinkronisasi, laporan tidak seimbang atau menggantung.",
+      "keywords": [
+        "laporan", "report", "neraca", "cetak", "print", "preview",
+        "pdf", "excel", "export", "sinkron", "menggantung"
+      ],
+      "phrases": [
+        "laba rugi", "buku besar", "tidak seimbang"
+      ]
+    },
+    {
+      "name": "TRANSAKSI_INPUT_DATA",
+      "definition": "Keluhan terkait pencatatan transaksi dan penginputan data: transaksi, input, simpan/save, retur, piutang/hutang, stok, harga, jual-beli, pembayaran, faktur, nota, giro, kas, bank, saldo, selisih, penjualan/pembelian, purchase order.",
+      "keywords": [
+        "transaksi", "input", "simpan", "save", "retur", "piutang",
+        "hutang", "stok", "stock", "harga", "jual", "beli", "pembayaran",
+        "faktur", "nota", "giro", "kas", "bank", "saldo", "selisih",
+        "penjualan", "pembelian", "po"
+      ],
+      "phrases": []
+    },
+    {
+      "name": "PERTANYAAN_UMUM_FITUR",
+      "definition": "Keluhan berupa pertanyaan umum tentang fitur/modul Zahir: cara menggunakan suatu fitur, panduan, tutorial, tanya-tanya kemampuan aplikasi, atau alasan ('kenapa') suatu perilaku aplikasi.",
+      "keywords": [
+        "tanya", "tanyank", "fitur", "modul", "panduan", "tutor",
+        "tutorial", "kenapa"
+      ],
+      "phrases": [
+        "bagaimana cara", "gimana cara", "cara menggunakan",
+        "bisa nggak", "bisa gak"
+      ]
+    }
+  ]
+}

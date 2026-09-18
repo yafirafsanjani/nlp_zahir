@@ -1,4 +1,18 @@
-﻿def main():
+﻿def _flag(args, name):
+    return name in args
+
+
+def _opt(args, name, default=None, cast=str):
+    for i, a in enumerate(args):
+        if a == name and i + 1 < len(args):
+            try:
+                return cast(args[i + 1])
+            except ValueError:
+                return default
+    return default
+
+
+def main():
     import sys
 
     if len(sys.argv) > 1 and sys.argv[1] == "explore":
@@ -67,6 +81,34 @@
         from src.pipeline import run
         arg = sys.argv[2] if len(sys.argv) > 2 else None
         run(arg)
+    elif len(sys.argv) > 1 and sys.argv[1] in ("llm-label", "llm_label", "llm3"):
+        from src.llm_labeling import run
+        rest = sys.argv[2:]
+        run(provider=_opt(rest, "--provider"), dry_run=_flag(rest, "--dry-run"))
+    elif len(sys.argv) > 1 and sys.argv[1] in ("reconcile", "reconciliation", "recon"):
+        from src.reconciliation import run
+        rest = sys.argv[2:]
+        run(
+            provider=_opt(rest, "--provider"),
+            dry_run=_flag(rest, "--dry-run"),
+            min_samples=_opt(rest, "--min-samples", 5, int),
+        )
+    elif len(sys.argv) > 1 and sys.argv[1] in ("active-learning", "active", "active-learning-loop"):
+        from src.active_learning import run
+        rest = sys.argv[2:]
+        run(
+            provider=_opt(rest, "--provider"),
+            dry_run=_flag(rest, "--dry-run"),
+            top_n=_opt(rest, "--top-n", 30, int),
+        )
+    elif len(sys.argv) > 1 and sys.argv[1] in ("train-model", "retrain-model", "llm-train"):
+        from src.retrain import run
+        rest = sys.argv[2:]
+        run(
+            label_source=_opt(rest, "--labels", "auto"),
+            skip_llm=_flag(rest, "--skip-llm"),
+            provider=_opt(rest, "--provider"),
+        )
     else:
         from src.parser import run
         run()

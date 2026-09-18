@@ -2,3 +2,6 @@
 indo-normalizer>=1.2.0
 nlp-id>=0.1.23.0
 scikit-learn>=1.8.0
+# LLM Labeling (Fase 2) - install sesuai provider yang dipakai
+openai>=1.30.0
+google-generativeai>=0.7.0

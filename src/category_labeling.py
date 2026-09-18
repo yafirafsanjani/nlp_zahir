@@ -8,42 +8,24 @@ lalu menyimpan hasil akhir ke chat_with_categories.csv.
 """
 
 import csv
-import re
 from pathlib import Path
 from collections import Counter
+
+from src.taxonomy import (
+    build_category_patterns,
+    detect_category,
+    get_fallback_category,
+)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 INPUT_FILE = PROCESSED_DIR / "chat_with_remotes.csv"
 OUTPUT_FILE = PROCESSED_DIR / "chat_with_categories.csv"
 
-# Definisi Pattern Kategori Kendala dengan Bobot Prioritas Deteksi
-CATEGORY_PATTERNS = [
-    ("DATABASE_SYSTEM_ERROR", re.compile(
-        r"\b(error|gagal|corrupt|damaged|firebird|database|db|crash|hang|close|keluar\s+sendiri|tertutup|tidak\s+bisa\s+buka|rtd|access\s+violation|table)\b",
-        re.IGNORECASE,
-    )),
-    ("LISENSI_DONGLE_REGISTRASI", re.compile(
-        r"\b(dongle|lisensi|license|registrasi|serial\s*number|sn|no\s*seri|key|invalide|unregistered|expired|kadaluarsa|renew|langganan|kunci|aktivasi|kode\s+aktivasi)\b",
-        re.IGNORECASE,
-    )),
-    ("INSTALASI_SETUP_NETWORK", re.compile(
-        r"\b(install|instal|instalasi|setup|update|upgrade|versi|version|server|client|ip\s*address|jaringan|network|connect|koneksi|anakan|induk)\b",
-        re.IGNORECASE,
-    )),
-    ("LAPORAN_REPORTING", re.compile(
-        r"\b(laporan|report|laba\s*rugi|neraca|buku\s*besar|cetak|print|preview|pdf|excel|export|sinkron|tidak\s+seimbang|menggantung)\b",
-        re.IGNORECASE,
-    )),
-    ("TRANSAKSI_INPUT_DATA", re.compile(
-        r"\b(transaksi|input|simpan|save|retur|piutang|hutang|stok|stock|harga|jual|beli|pembayaran|faktur|nota|giro|kas|bank|saldo|selisih|penjualan|pembelian|po|faktur)\b",
-        re.IGNORECASE,
-    )),
-    ("PERTANYAAN_UMUM_FITUR", re.compile(
-        r"\b(tanya|tanyank|bagaimana\s+cara|gimana\s+cara|fitur|modul|panduan|cara\s+menggunakan|tutor|tutorial|bisa\s+nggak|bisa\s+gak|kenapa)\b",
-        re.IGNORECASE,
-    )),
-]
+# Definisi Pattern Kategori Kendala dengan Bobot Prioritas Deteksi.
+# Berasal dari config/taxonomy.json (single source of truth) agar selalu sinkron.
+CATEGORY_PATTERNS = build_category_patterns()
+FALLBACK = get_fallback_category()
 
 def load_csv(filepath):
     with open(filepath, "r", encoding="utf-8") as f:
@@ -78,7 +60,7 @@ def split_and_label_conversation(msgs):
             # Jika terdeteksi kategori baru yang berbeda signifikan dari kategori segmen saat ini
             if detected_cat and current_cat and detected_cat != current_cat:
                 # Simpan sub-conversation sebelumnya
-                sub_convs.append((sub_index, current_cat or "LAINNYA_UNCATEGORIZED", current_sub_msgs))
+                sub_convs.append((sub_index, current_cat or FALLBACK, current_sub_msgs))
                 sub_index += 1
                 current_sub_msgs = [m]
                 current_cat = detected_cat
@@ -88,7 +70,7 @@ def split_and_label_conversation(msgs):
                     current_cat = detected_cat
 
     if current_sub_msgs:
-        sub_convs.append((sub_index, current_cat or "LAINNYA_UNCATEGORIZED", current_sub_msgs))
+        sub_convs.append((sub_index, current_cat or FALLBACK, current_sub_msgs))
 
     return sub_convs
 
