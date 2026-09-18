@@ -76,11 +76,12 @@ Setelah pipeline inti rampung, dikembangkan skema **LLM-assisted labeling + acti
 
 | Fase | Status | Deskripsi |
 |---|---|---|
-| **TAXON** - Taksonomi Config | ✅ Selesai | `config/taxonomy.json` + `src/taxonomy.py` (generate regex otomatis). Pattern kini tidak hardcoded. |
-| **LLM-L** - Modul LLM Labeling | ✅ Selesai | `src/llm_labeling.py`: prompt LLM (definisi + few-shot), output JSON `{kategori, confidence, evidence, perlu_kategori_baru, usulan_kategori}`, temperature=0, simpan `llm_labels.csv`. Mendukung OpenAI & Gemini + mode `--dry-run`. |
+| **TAXON** - Taksonomi Config | ✅ Selesai | `config/taxonomy.json` (v2) + `src/taxonomy.py`. Definisi kategori kini berbasis **logika pembeda**: pertanyaan umum vs troubleshooting network vs error database. Pattern regex generate otomatis. |
+| **LLM-L** - Modul LLM Labeling | ✅ Selesai | `src/llm_labeling.py`: prompt definisi + few-shot, kontrak JSON `{label, main_issue, reason, confidence, perlu_kategori_baru, usulan_kategori}`, temperature=0, input = keluhan klien + konteks percakapan penuh, simpan `llm_labels.csv`. Mendukung OpenAI & Gemini + `--dry-run`. Dry-run agree vs regex: 88.4%. |
 | **RECON** - Reconciliation & Auto-Add Kategori | ✅ Selesai | `src/reconciliation.py`: klaster kandidat `flag_recon` (TF-IDF + connected components), LLM mengusulkan kategori baru, auto-add ke `taxonomy.json` bila ≥ `--min-samples`; laporan `reconciliation_results.csv`. |
 | **ACTIVE** - Active Learning Loop | ✅ Selesai | `src/active_learning.py`: model produksi memprediksi data training, `top-N` dokumen margin probabilitas terkecil (paling ragu) dikirim ulang ke LLM untuk relabel; label konsisten (KEEP/UPDATE) jadi ground truth final, konflik tanda REVIEW. Output `active_learning_results.csv` & `ground_truth_final.csv`. Dry-run: 30 relabel -> 9 UPDATE, 4 REVIEW. |
-| **CLI** - Integrasi `main.py` | ✅ Selesai | `python main.py llm-label / reconcile / active-learning / train-model`, flag `--skip-llm` (langsung train dari CSV label yang ada), `--labels ground_truth|llm|existing`, `--dry-run`, `--provider`, `--top-n`. Retrain idempotent berkat backup `chat_with_categories.backup.csv`. |
+| **AUDIT** - Audit Ground Truth | ✅ Selesai | `src/audit_labels.py`: audit non-destruktif label hasil LLM → memilah `KONSISTEN / AMBIGU / BERISIKO_SALAH` (mis. teks ber-IP/firewall tapi dilabel pertanyaan umum) → `label_audit.csv`, tanpa mengubah ground truth. |
+| **CLI** - Integrasi `main.py` | ✅ Selesai | `python main.py llm-label / reconcile / active-learning / train-model / audit-labels`, flag `--skip-llm`, `--labels ground_truth|llm|existing`, `--dry-run`, `--provider`, `--top-n`. Retrain idempotent via backup `chat_with_categories.backup.csv`. |
 
 **Cara pakai integrasi CLI (Fase 5):**
 ```bash
@@ -94,7 +95,11 @@ python main.py reconcile --dry-run --min-samples 3
 # 3. Active learning: relabel dokumen paling ragu dari model
 python main.py active-learning --dry-run --top-n 30
 
-# 4. Retrain model dengan ground truth hasil LLM
+# 4. Audit ground truth (non-destruktif): KONSISTEN / AMBIGU / BERISIKO_SALAH
+python main.py audit-labels
+python main.py audit-labels --input path/ke/csv.csv    # audit file lain
+
+# 5. Retrain model dengan ground truth hasil LLM
 python main.py train-model                            # jalur penuh: LLM -> recon -> active -> train
 python main.py train-model --skip-llm                 # langsung train dari CSV label (ground_truth > llm > existing)
 python main.py train-model --skip-llm --labels llm    # paksa pakai label llm_labels.csv

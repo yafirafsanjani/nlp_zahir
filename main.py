@@ -109,6 +109,13 @@ def main():
             skip_llm=_flag(rest, "--skip-llm"),
             provider=_opt(rest, "--provider"),
         )
+    elif len(sys.argv) > 1 and sys.argv[1] in ("audit-labels", "audit", "audit-ground-truth"):
+        from src.audit_labels import run
+        rest = sys.argv[2:]
+        run(
+            input_path=_opt(rest, "--input"),
+            limit=_opt(rest, "--limit", None, int),
+        )
     else:
         from src.parser import run
         run()

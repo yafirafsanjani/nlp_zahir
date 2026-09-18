@@ -1,21 +1,22 @@
 {
-  "version": 1,
+  "version": 2,
   "fallback_category": "LAINNYA_UNCATEGORIZED",
   "categories": [
     {
       "name": "DATABASE_SYSTEM_ERROR",
-      "definition": "Keluhan terkait kesalahan/kerusakan sistem database Zahir: muncul pesan error, aplikasi gagal, database corrupt/rusak, Firebird, crash, hang, program keluar sendiri atau tertutup, tidak bisa dibuka, RTD, access violation.",
+      "definition": "Inti masalah berasal dari KERUSAKAN/ERROR basis data itu sendiri atau engine-nya (mis. Firebird): database corrupt/rusak, database tidak dapat dibuka karena kerusakan database, database error, database engine error, struktur database bermasalah, data/tabel tidak dapat dibaca karena masalah internal database, RTD, access violation, aplikasi keluar sendiri/hang saat membuka karena database. PENTING: bila masalahnya HANYA koneksi ke server database (client tidak bisa terhubung ke server) sedangkan database server normal, itu bukan kategori ini, melainkan INSTALASI_SETUP_NETWORK.",
       "keywords": [
         "error", "gagal", "corrupt", "damaged", "firebird", "database",
-        "db", "crash", "hang", "close", "tertutup", "rtd", "table"
+        "db", "crash", "hang", "rtd", "table", "kernel", "rusak"
       ],
       "phrases": [
-        "keluar sendiri", "tidak bisa buka", "access violation"
+        "keluar sendiri", "tidak bisa buka", "tidak bisa dibuka",
+        "access violation", "database corrupt", "database rusak"
       ]
     },
     {
       "name": "LISENSI_DONGLE_REGISTRASI",
-      "definition": "Keluhan terkait lisensi, dongle, registrasi dan aktivasi: dongle tidak terbaca, lisensi/license, serial number, kode aktivasi, unregistered, expired/kadaluarsa, perpanjangan langganan, kunci aplikasi.",
+      "definition": "Inti masalah berkaitan dengan lisensi, dongle, registrasi, dan aktivasi aplikasi: dongle tidak terbaca, lisensi/license, serial number / no seri, kode aktivasi, unregistered/invalid, expired/kadaluarsa, perpanjangan langganan, kunci aplikasi. Bila dongle dipakai sekadar melakukan registrasi ulang setelah instalasi ulang, inti masalah tetap di sini (registrasi), bukan di instalasi.",
       "keywords": [
         "dongle", "lisensi", "license", "registrasi", "sn", "key",
         "invalide", "unregistered", "expired", "kadaluarsa", "renew",
@@ -27,19 +28,21 @@
     },
     {
       "name": "INSTALASI_SETUP_NETWORK",
-      "definition": "Keluhan terkait pemasangan, pembaruan, dan jaringan: install/instalasi, setup, update/upgrade/versi, server-client, IP address, jaringan/network, koneksi, serta struktur anakan-induk pada Zahir.",
+      "definition": "Inti masalah berkaitan dengan instalasi, konfigurasi, setup, update, atau TROUBLESHOOTING koneksi komputer/jaringan client-server Zahir, meskipun dibingkai sebagai pertanyaan. Termasuk: install/setup/update/upgrade Zahir, struktur induk-anak/anakan, IP address / alamat IP, LAN, jaringan/network, komputer client tidak terhubung ke server, komputer server, firewall yang menghalangi atau mengganggu koneksi (mis. Windows Defender Firewall), koneksi database melalui jaringan, sharing folder, lokasi database di server/network, remote connection untuk troubleshooting jaringan, error koneksi/setup. PENTING: kehadiran kata IP/server/firewall/jaringan SAJA tidak cukup — harus ada indikasi masalah koneksi atau pemasangan yang sedang ditangani (tidak bisa terhubung, ganti IP tapi tetap gagal, setelah firewall nonaktif baru bisa, dll). Pertanyaan murni yang meminta penjelasan atau panduan tanpa masalah (mis. 'apa itu IP address?', 'bagaimana cara setting IP komputer?' tanpa keluhan) → PERTANYAAN_UMUM_FITUR.",
       "keywords": [
         "install", "instal", "instalasi", "setup", "update", "upgrade",
         "versi", "version", "server", "client", "jaringan", "network",
-        "connect", "koneksi", "anakan", "induk"
+        "connect", "koneksi", "konek", "anakan", "induk", "firewall", "lan"
       ],
       "phrases": [
-        "ip address"
+        "ip address", "alamat ip", "windows defender firewall",
+        "sharing folder", "tidak bisa terhubung", "tidak bisa connect",
+        "tidak bisa konek"
       ]
     },
     {
       "name": "LAPORAN_REPORTING",
-      "definition": "Keluhan terkait pembuatan, pencetakan, dan export laporan: laporan/report, laba rugi, neraca, buku besar, cetak/print, preview, PDF, Excel, export, sinkronisasi, laporan tidak seimbang atau menggantung.",
+      "definition": "Inti masalah berkaitan dengan pembuatan, pencetakan, dan export laporan: laporan/report, laba rugi, neraca, buku besar, cetak/print, preview, PDF, Excel, export, sinkronisasi laporan, laporan tidak seimbang atau menggantung saat dicetak.",
       "keywords": [
         "laporan", "report", "neraca", "cetak", "print", "preview",
         "pdf", "excel", "export", "sinkron", "menggantung"
@@ -50,7 +53,7 @@
     },
     {
       "name": "TRANSAKSI_INPUT_DATA",
-      "definition": "Keluhan terkait pencatatan transaksi dan penginputan data: transaksi, input, simpan/save, retur, piutang/hutang, stok, harga, jual-beli, pembayaran, faktur, nota, giro, kas, bank, saldo, selisih, penjualan/pembelian, purchase order.",
+      "definition": "Inti masalah berkaitan dengan pencatatan transaksi dan penginputan data: transaksi, input, simpan/save, retur, piutang/hutang, stok, harga, jual-beli, pembayaran, faktur, nota, giro, kas, bank, saldo, selisih, penjualan/pembelian, purchase order.",
       "keywords": [
         "transaksi", "input", "simpan", "save", "retur", "piutang",
         "hutang", "stok", "stock", "harga", "jual", "beli", "pembayaran",
@@ -61,14 +64,14 @@
     },
     {
       "name": "PERTANYAAN_UMUM_FITUR",
-      "definition": "Keluhan berupa pertanyaan umum tentang fitur/modul Zahir: cara menggunakan suatu fitur, panduan, tutorial, tanya-tanya kemampuan aplikasi, atau alasan ('kenapa') suatu perilaku aplikasi.",
+      "definition": "Digunakan HANYA untuk pertanyaan penggunaan biasa: menanyakan cara penggunaan, fungsi, menu, tata cara, panduan/tutorial, atau penjelasan fitur/modul Zahir, dan TIDAK ada masalah teknis yang sedang ditangani. Kunci: customer hanya ingin tahu/memahami cara kerja, bukan sedang menyelesaikan kegagalan. PENTING: bila pertanyaan berkaitan dengan masalah yang sedang ditangani (mis. 'kenapa tidak bisa konek', 'bagaimana cara mengatasi error database'), pilih kategori sesuai INTI MASALAHNYA (INSTALASI_SETUP_NETWORK / DATABASE_SYSTEM_ERROR / dst), bukan kategori ini.",
       "keywords": [
         "tanya", "tanyank", "fitur", "modul", "panduan", "tutor",
-        "tutorial", "kenapa"
+        "tutorial", "cara"
       ],
       "phrases": [
         "bagaimana cara", "gimana cara", "cara menggunakan",
-        "bisa nggak", "bisa gak"
+        "bisa nggak", "bisa gak", "apa itu", "apakah bisa"
       ]
     }
   ]
