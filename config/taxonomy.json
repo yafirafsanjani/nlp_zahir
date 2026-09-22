@@ -6,37 +6,85 @@
       "name": "DATABASE_SYSTEM_ERROR",
       "definition": "Inti masalah berasal dari KERUSAKAN/ERROR basis data itu sendiri atau engine-nya (mis. Firebird): database corrupt/rusak, database tidak dapat dibuka karena kerusakan database, database error, database engine error, struktur database bermasalah, data/tabel tidak dapat dibaca karena masalah internal database, RTD, access violation, aplikasi keluar sendiri/hang saat membuka karena database. PENTING: bila masalahnya HANYA koneksi ke server database (client tidak bisa terhubung ke server) sedangkan database server normal, itu bukan kategori ini, melainkan INSTALASI_SETUP_NETWORK.",
       "keywords": [
-        "error", "gagal", "corrupt", "damaged", "firebird", "database",
-        "db", "crash", "hang", "rtd", "table", "kernel", "rusak"
+        "error",
+        "gagal",
+        "corrupt",
+        "damaged",
+        "firebird",
+        "database",
+        "db",
+        "crash",
+        "hang",
+        "rtd",
+        "table",
+        "kernel",
+        "rusak"
       ],
       "phrases": [
-        "keluar sendiri", "tidak bisa buka", "tidak bisa dibuka",
-        "access violation", "database corrupt", "database rusak"
+        "keluar sendiri",
+        "tidak bisa buka",
+        "tidak bisa dibuka",
+        "access violation",
+        "database corrupt",
+        "database rusak"
       ]
     },
     {
       "name": "LISENSI_DONGLE_REGISTRASI",
       "definition": "Inti masalah berkaitan dengan lisensi, dongle, registrasi, dan aktivasi aplikasi: dongle tidak terbaca, lisensi/license, serial number / no seri, kode aktivasi, unregistered/invalid, expired/kadaluarsa, perpanjangan langganan, kunci aplikasi. Bila dongle dipakai sekadar melakukan registrasi ulang setelah instalasi ulang, inti masalah tetap di sini (registrasi), bukan di instalasi.",
       "keywords": [
-        "dongle", "lisensi", "license", "registrasi", "sn", "key",
-        "invalide", "unregistered", "expired", "kadaluarsa", "renew",
-        "langganan", "kunci", "aktivasi"
+        "dongle",
+        "lisensi",
+        "license",
+        "registrasi",
+        "sn",
+        "key",
+        "invalide",
+        "unregistered",
+        "expired",
+        "kadaluarsa",
+        "renew",
+        "langganan",
+        "kunci",
+        "aktivasi"
       ],
       "phrases": [
-        "serial number", "no seri", "kode aktivasi"
+        "serial number",
+        "no seri",
+        "kode aktivasi"
       ]
     },
     {
       "name": "INSTALASI_SETUP_NETWORK",
       "definition": "Inti masalah berkaitan dengan instalasi, konfigurasi, setup, update, atau TROUBLESHOOTING koneksi komputer/jaringan client-server Zahir, meskipun dibingkai sebagai pertanyaan. Termasuk: install/setup/update/upgrade Zahir, struktur induk-anak/anakan, IP address / alamat IP, LAN, jaringan/network, komputer client tidak terhubung ke server, komputer server, firewall yang menghalangi atau mengganggu koneksi (mis. Windows Defender Firewall), koneksi database melalui jaringan, sharing folder, lokasi database di server/network, remote connection untuk troubleshooting jaringan, error koneksi/setup. PENTING: kehadiran kata IP/server/firewall/jaringan SAJA tidak cukup — harus ada indikasi masalah koneksi atau pemasangan yang sedang ditangani (tidak bisa terhubung, ganti IP tapi tetap gagal, setelah firewall nonaktif baru bisa, dll). Pertanyaan murni yang meminta penjelasan atau panduan tanpa masalah (mis. 'apa itu IP address?', 'bagaimana cara setting IP komputer?' tanpa keluhan) → PERTANYAAN_UMUM_FITUR.",
       "keywords": [
-        "install", "instal", "instalasi", "setup", "update", "upgrade",
-        "versi", "version", "server", "client", "jaringan", "network",
-        "connect", "koneksi", "konek", "anakan", "induk", "firewall", "lan"
+        "install",
+        "instal",
+        "instalasi",
+        "setup",
+        "update",
+        "upgrade",
+        "versi",
+        "version",
+        "server",
+        "client",
+        "jaringan",
+        "network",
+        "connect",
+        "koneksi",
+        "konek",
+        "anakan",
+        "induk",
+        "firewall",
+        "lan"
       ],
       "phrases": [
-        "ip address", "alamat ip", "windows defender firewall",
-        "sharing folder", "tidak bisa terhubung", "tidak bisa connect",
+        "ip address",
+        "alamat ip",
+        "windows defender firewall",
+        "sharing folder",
+        "tidak bisa terhubung",
+        "tidak bisa connect",
         "tidak bisa konek"
       ]
     },
@@ -44,21 +92,51 @@
       "name": "LAPORAN_REPORTING",
       "definition": "Inti masalah berkaitan dengan pembuatan, pencetakan, dan export laporan: laporan/report, laba rugi, neraca, buku besar, cetak/print, preview, PDF, Excel, export, sinkronisasi laporan, laporan tidak seimbang atau menggantung saat dicetak.",
       "keywords": [
-        "laporan", "report", "neraca", "cetak", "print", "preview",
-        "pdf", "excel", "export", "sinkron", "menggantung"
+        "laporan",
+        "report",
+        "neraca",
+        "cetak",
+        "print",
+        "preview",
+        "pdf",
+        "excel",
+        "export",
+        "sinkron",
+        "menggantung"
       ],
       "phrases": [
-        "laba rugi", "buku besar", "tidak seimbang"
+        "laba rugi",
+        "buku besar",
+        "tidak seimbang"
       ]
     },
     {
       "name": "TRANSAKSI_INPUT_DATA",
       "definition": "Inti masalah berkaitan dengan pencatatan transaksi dan penginputan data: transaksi, input, simpan/save, retur, piutang/hutang, stok, harga, jual-beli, pembayaran, faktur, nota, giro, kas, bank, saldo, selisih, penjualan/pembelian, purchase order.",
       "keywords": [
-        "transaksi", "input", "simpan", "save", "retur", "piutang",
-        "hutang", "stok", "stock", "harga", "jual", "beli", "pembayaran",
-        "faktur", "nota", "giro", "kas", "bank", "saldo", "selisih",
-        "penjualan", "pembelian", "po"
+        "transaksi",
+        "input",
+        "simpan",
+        "save",
+        "retur",
+        "piutang",
+        "hutang",
+        "stok",
+        "stock",
+        "harga",
+        "jual",
+        "beli",
+        "pembayaran",
+        "faktur",
+        "nota",
+        "giro",
+        "kas",
+        "bank",
+        "saldo",
+        "selisih",
+        "penjualan",
+        "pembelian",
+        "po"
       ],
       "phrases": []
     },
@@ -66,12 +144,86 @@
       "name": "PERTANYAAN_UMUM_FITUR",
       "definition": "Digunakan HANYA untuk pertanyaan penggunaan biasa: menanyakan cara penggunaan, fungsi, menu, tata cara, panduan/tutorial, atau penjelasan fitur/modul Zahir, dan TIDAK ada masalah teknis yang sedang ditangani. Kunci: customer hanya ingin tahu/memahami cara kerja, bukan sedang menyelesaikan kegagalan. PENTING: bila pertanyaan berkaitan dengan masalah yang sedang ditangani (mis. 'kenapa tidak bisa konek', 'bagaimana cara mengatasi error database'), pilih kategori sesuai INTI MASALAHNYA (INSTALASI_SETUP_NETWORK / DATABASE_SYSTEM_ERROR / dst), bukan kategori ini.",
       "keywords": [
-        "tanya", "tanyank", "fitur", "modul", "panduan", "tutor",
-        "tutorial", "cara"
+        "tanya",
+        "tanyank",
+        "fitur",
+        "modul",
+        "panduan",
+        "tutor",
+        "tutorial",
+        "cara"
       ],
       "phrases": [
-        "bagaimana cara", "gimana cara", "cara menggunakan",
-        "bisa nggak", "bisa gak", "apa itu", "apakah bisa"
+        "bagaimana cara",
+        "gimana cara",
+        "cara menggunakan",
+        "bisa nggak",
+        "bisa gak",
+        "apa itu",
+        "apakah bisa"
+      ]
+    },
+    {
+      "name": "CUSTOMER_SUPPORT_LAYANAN",
+      "definition": "Percakapan yang berfokus pada kanal dan prosedur pelayanan teknis customer support, seperti permintaan koneksi remote support (UltraViewer, AnyDesk, TeamViewer), permintaan atau penjadwalan panggilan telepon support, janji kunjungan teknisi (onsite support), atau koordinasi/penanganan langsung staf CS.",
+      "keywords": [
+        "remote",
+        "remot",
+        "ultraviewer",
+        "anydesk",
+        "teamviewer",
+        "telepon",
+        "telfon",
+        "telp",
+        "hubungi",
+        "call",
+        "onsite",
+        "kunjungan",
+        "dihubungkan",
+        "staf",
+        "cs"
+      ],
+      "phrases": [
+        "minta remote",
+        "tolong remote",
+        "ultra viewer",
+        "minta dihubungi",
+        "jadwal telepon",
+        "bisa ditelp",
+        "kunjungan kantor",
+        "onsite support",
+        "hubungkan cs",
+        "minta nomor cs"
+      ]
+    },
+    {
+      "name": "ADMINISTRASI_LAYANAN",
+      "definition": "Percakapan yang berfokus pada transaksi bisnis dan administrasi purna jual layanan Zahir, seperti perpanjangan kontrak Customer Care/berlangganan, permintaan penawaran harga, biaya perpanjangan/tambah paket, pengiriman invoice, kwitansi, faktur pajak pembelian layanan, serta bukti transfer pembayaran.",
+      "keywords": [
+        "perpanjang",
+        "perpanjangan",
+        "penawaran",
+        "invoice",
+        "kwitansi",
+        "pembayaran",
+        "transfer",
+        "rekening",
+        "tagihan",
+        "langganan",
+        "kontrak",
+        "biaya",
+        "harga",
+        "paket"
+      ],
+      "phrases": [
+        "customer care",
+        "penawaran harga",
+        "biaya perpanjangan",
+        "bukti transfer",
+        "faktur pajak",
+        "nomor rekening",
+        "perpanjang langganan",
+        "tambah user"
       ]
     }
   ]

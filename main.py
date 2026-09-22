@@ -116,6 +116,9 @@ def main():
             input_path=_opt(rest, "--input"),
             limit=_opt(rest, "--limit", None, int),
         )
+    elif len(sys.argv) > 1 and sys.argv[1] in ("evaluate-gt", "eval-gt"):
+        from src.evaluate_gt import run
+        run()
     else:
         from src.parser import run
         run()

@@ -38,7 +38,7 @@ def _print_banner(msg):
 
 
 def _load_csv(path):
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8-sig") as f:
         return list(csv.DictReader(f))
 
 
@@ -84,7 +84,7 @@ def _build_label_map(source):
         if not _require_file(LLM_LABELS_FILE, "Jalankan python main.py llm-label dulu."):
             return None, source
         rows = _load_csv(LLM_LABELS_FILE)
-        mapping = {r["sub_conversation_id"]: r["kategori_llm"] for r in rows}
+        mapping = {(r.get("sub_conversation_id") or r.get("id")): r["kategori_llm"] for r in rows}
         return mapping, "LLM labeling (llm_labels.csv)"
 
     # source == ground_truth (default final)
@@ -92,7 +92,7 @@ def _build_label_map(source):
                          "Jalankan Fase ACTIVE dulu (python src/active_learning.py)."):
         return None, source
     rows = _load_csv(GROUND_TRUTH_FILE)
-    mapping = {r["sub_conversation_id"]: r["kategori_kendala_final"] for r in rows}
+    mapping = {(r.get("sub_conversation_id") or r.get("id")): (r.get("kategori_kendala_final") or r.get("kategori_kendala") or r.get("kategori")) for r in rows}
     return mapping, "active learning ground truth (ground_truth_final.csv)"
 
 
@@ -105,20 +105,26 @@ def _apply_labels(mapping):
         shutil.copy2(CHAT_CATEGORIES_FILE, BACKUP_FILE)
         print(f"Backup label regex murni dibuat: {BACKUP_FILE.name}")
     else:
-        shutil.copy2(BACKUP_FILE, CHAT_CATEGORIES_FILE)
+        cat_rows = _load_csv(CHAT_CATEGORIES_FILE)
+        bak_rows = _load_csv(BACKUP_FILE)
+        if len(cat_rows) > len(bak_rows):
+            shutil.copy2(CHAT_CATEGORIES_FILE, BACKUP_FILE)
+            print(f'Backup label diperbarui dengan data baru ({len(cat_rows)} baris): {BACKUP_FILE.name}')
+        else:
+            shutil.copy2(BACKUP_FILE, CHAT_CATEGORIES_FILE)
 
     rows = _load_csv(CHAT_CATEGORIES_FILE)
-    mapped = sum(1 for r in rows if r["sub_conversation_id"] in mapping)
+    mapped = sum(1 for r in rows if (r.get("sub_conversation_id") or r.get("id")) in mapping)
     if mapped == 0:
         print(f"[ERROR] Tidak ada sub_conversation_id yang cocok dengan sumber label.")
         print("        Dataset label dikembalikan ke kondisi awal (regex).")
         return False
 
     for r in rows:
-        if r["sub_conversation_id"] in mapping:
-            r["kategori_kendala"] = mapping[r["sub_conversation_id"]]
+        if (r.get("sub_conversation_id") or r.get("id")) in mapping:
+            r["kategori_kendala"] = mapping[(r.get("sub_conversation_id") or r.get("id"))]
 
-    with open(CHAT_CATEGORIES_FILE, "w", encoding="utf-8", newline="") as f:
+    with open(CHAT_CATEGORIES_FILE, "w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=rows[0].keys())
         writer.writeheader()
         writer.writerows(rows)

@@ -1,0 +1,677 @@
+[
+  {
+    "id": "chat_1_conv_002_a",
+    "ringkas": "[09/03/23 10.42] CLIENT: Maaf pak ini syaa kmarin mau nginstal anak annya kx gak bisa ya ? [09/03/23 10.42] CL...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "INSTALASI_SETUP_NETWORK",
+    "tipe_rec": "LABEL_LAMA",
+    "alasan": "Percakapan membahas kendala instalasi Zahir, konfigurasi komputer anakan/induk, atau jaringan server.",
+    "full": "[09/03/23 10.42] CLIENT: Maaf pak ini syaa kmarin mau nginstal anak annya kx gak bisa ya ? [09/03/23 10.42] CLIENT: Gmna ya pak caranya [09/03/23 10.42] CLIENT: Pesan ini dihapus [09/03/23 10.43] ADMIN: Selamat siang, dengan saya abid, bisa difotokan terlebih dahulu untuk warning yang muncul? [09/03/23 10.43] CLIENT: <Media tidak disertakan> Memang kluar gni ya pak?"
+  },
+  {
+    "id": "chat_1_conv_003_a",
+    "ringkas": "[10/03/23 09.09] ADMIN: salah install bu, ini zahir report server bukan zahir accounting",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "INSTALASI_SETUP_NETWORK",
+    "tipe_rec": "LABEL_LAMA",
+    "alasan": "Percakapan membahas kendala instalasi Zahir, konfigurasi komputer anakan/induk, atau jaringan server.",
+    "full": "[10/03/23 09.09] ADMIN: salah install bu, ini zahir report server bukan zahir accounting"
+  },
+  {
+    "id": "chat_1_conv_004_a",
+    "ringkas": "[08/05/23 10.15] CLIENT: slamat pagi pak , kemarin saya ada email untuk membukakan tahun 2022 pak [08/05/23 10...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[08/05/23 10.15] CLIENT: slamat pagi pak , kemarin saya ada email untuk membukakan tahun 2022 pak [08/05/23 10.17] ADMIN: selamat pagi [08/05/23 10.17] ADMIN: silahkan bs dibuka remotenya [08/05/23 10.17] ADMIN: diinfokan id dan pass remotenya ya bu [08/05/23 10.18] CLIENT: <Media tidak disertakan> [08/05/23 10.18] CLIENT: Ini ya pak [08/05/23 10.49] ADMIN: baik [08/05/23 10.49] ADMIN: sdh saya mundurkan ke 2022 [08/05/23 10.49] ADMIN: silahkan bs dilanjutkan [08/05/23 10.49] CLIENT: Baik pak terima kasih [08/05/23 11.58] ADMIN: baik sama2"
+  },
+  {
+    "id": "chat_1_conv_010_a",
+    "ringkas": "[25/06/24 11.16] CLIENT: Siank pak, bagaimana pak apa sudah ada tanda2😅 ..? [25/06/24 11.32] ADMIN: selamat si...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[25/06/24 11.16] CLIENT: Siank pak, bagaimana pak apa sudah ada tanda2😅 ..? [25/06/24 11.32] ADMIN: selamat siang [25/06/24 11.32] ADMIN: mohon maaf, masih dalam antrian pengecekkan ya [25/06/24 11.32] ADMIN: nanti kami infokan kembali jika sudah selesai [25/06/24 11.56] CLIENT: Baik pak, kira2 sampai brpa hari ya pak? [25/06/24 15.25] ADMIN: datanya baru dikirim kemaren sore ya kak, dan utk pengecekannya msh dlm antrian email [25/06/24 15.25] ADMIN: baru di download utk datanya dan akan di cek skrg [25/06/24 15.26] CLIENT: Baik pakk terima ksih 🙏🏿 [25/06/24 16.42] ADMIN: Untuk masalah yg di email [25/06/24 16.42] ADMIN: berikut langkah2 solusinya [25/06/24 16.42] ADMIN: bisa pilih file > alat bantu > sql script [25/06/24 16.43] CLIENT: Sdah pak [25/06/24 16.44] ADMIN: <Media tidak disertakan> SQL OMEGA.sql [25/06/24 16.45] CLIENT: Pak bisa di bantu remot saja ? 😅 [25/06/24 16.46] ADMIN: Download file berikut, jika sudah kembali ke sql script tadi > pilih load from file > arahkan ke file yang sudah didownload > Open > kemudian pilih execute > pastikan warning yang muncul \"SUCCESS NO ERROR FOUND\" <Pesan ini diedit> [25/06/24 16.46] ADMIN: mohon maaf utk versi 5 hrsnya sdh tdk kita support ya kak [25/06/24 16.46] ADMIN: silahkan bs mengikuti panduan di atas [25/06/24 16.47] ADMIN: Jika bingung bisa sambil difotokan [25/06/24 16.49] CLIENT: <Media tidak disertakan> Sudah pak [25/06/24 16.52] ADMIN: Bisa pilih selesai, kemudian silakan bisa dicek kembali laporannya [25/06/24 16.52] CLIENT: baik pak saya check nya terimkasihh [25/06/24 16.53] ADMIN: Sama-sama pak"
+  },
+  {
+    "id": "chat_1_conv_018_a",
+    "ringkas": "[28/10/24 14.44] CLIENT: Siank pak barusan saya ada email untuk buka tahun , bisa di bantu ? [28/10/24 14.45] ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "DATABASE_SYSTEM_ERROR",
+    "tipe_rec": "LABEL_LAMA",
+    "alasan": "Percakapan membahas perbaikan file database yang corrupt atau error engine Firebird.",
+    "full": "[28/10/24 14.44] CLIENT: Siank pak barusan saya ada email untuk buka tahun , bisa di bantu ? [28/10/24 14.45] ADMIN: Selamat siang [28/10/24 14.45] ADMIN: Bisa dibantu kirimkan databasenya juga ya bu [28/10/24 14.46] CLIENT: Baik pak"
+  },
+  {
+    "id": "chat_1_conv_019_a",
+    "ringkas": "[29/10/24 10.11] CLIENT: kemarin sudah sya kirimkan pak gdbnya [29/10/24 10.24] ADMIN: ibu bisa dijalanan ultr...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[29/10/24 10.11] CLIENT: kemarin sudah sya kirimkan pak gdbnya [29/10/24 10.24] ADMIN: ibu bisa dijalanan ultrviewernya, kmai bantu bukakan tutup tahunnya"
+  },
+  {
+    "id": "chat_1_conv_020_a",
+    "ringkas": "[30/10/24 10.22] CLIENT: <Media tidak disertakan> [30/10/24 10.22] ADMIN: baik kami coba login ya [30/10/24 10...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[30/10/24 10.22] CLIENT: <Media tidak disertakan> [30/10/24 10.22] ADMIN: baik kami coba login ya [30/10/24 10.23] CLIENT: Baik pak"
+  },
+  {
+    "id": "chat_1_conv_023_a",
+    "ringkas": "[09/11/24 09.53] CLIENT: Pagi pak Menindak lanjuti yang kemarin apa sudah bisa diremot? [09/11/24 09.56] ADMIN...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[09/11/24 09.53] CLIENT: Pagi pak Menindak lanjuti yang kemarin apa sudah bisa diremot? [09/11/24 09.56] ADMIN: Selamat pagi [09/11/24 09.57] ADMIN: Mohon ditunggu untuk kendalanya ya bu, nanti akan dicek langsung dengan tim IT kami"
+  },
+  {
+    "id": "chat_1_conv_024_a",
+    "ringkas": "[11/11/24 10.43] CLIENT: Siang pak Menindak lanjuti nomor yang hilang gimana ya?",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[11/11/24 10.43] CLIENT: Siang pak Menindak lanjuti nomor yang hilang gimana ya?"
+  },
+  {
+    "id": "chat_1_conv_026_a",
+    "ringkas": "[04/12/24 08.14] CLIENT: Pagi pak [04/12/24 08.15] CLIENT: Untuk ini apa sudah ya pak ? [04/12/24 08.25] ADMIN...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[04/12/24 08.14] CLIENT: Pagi pak [04/12/24 08.15] CLIENT: Untuk ini apa sudah ya pak ? [04/12/24 08.25] ADMIN: Selamat pagi [04/12/24 08.25] ADMIN: Mohon ditunggu ya untuk datanya sedang dalam antrean proses pengecekkan [04/12/24 08.26] CLIENT: Oh baik pak , kira2 berapa lama ya pak? [04/12/24 08.26] CLIENT: Pesan ini dihapus [04/12/24 08.29] ADMIN: masih dalam pengecekan kembali hari ini ya kak, mohon ditunggu [04/12/24 08.30] CLIENT: Baik terima ksih ,, kamu tunggu🙏🏻"
+  },
+  {
+    "id": "chat_1_conv_027_a",
+    "ringkas": "[06/12/24 09.26] CLIENT: Pagi pak , gmna ya pak ? Apa sudah ketemu ya kendalanya? [06/12/24 09.26] ADMIN: sela...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[06/12/24 09.26] CLIENT: Pagi pak , gmna ya pak ? Apa sudah ketemu ya kendalanya? [06/12/24 09.26] ADMIN: selamat pagi [06/12/24 09.27] ADMIN: masih blm bu, mohon ditunggu hari ini ya [06/12/24 09.27] CLIENT: Baik pak terima kasih"
+  },
+  {
+    "id": "chat_1_conv_029_a",
+    "ringkas": "[27/12/24 11.57] CLIENT: <Media tidak disertakan> Pak masuk kan ppn 12% bener gni? [27/12/24 13.14] ADMIN: Sel...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[27/12/24 11.57] CLIENT: <Media tidak disertakan> Pak masuk kan ppn 12% bener gni? [27/12/24 13.14] ADMIN: Selamat siang [27/12/24 13.14] ADMIN: betul bu [27/12/24 13.19] CLIENT: Baik terima kasih"
+  },
+  {
+    "id": "chat_1_conv_033_a",
+    "ringkas": "[28/01/25 08.25] CLIENT: pak apakah libur ?",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[28/01/25 08.25] CLIENT: pak apakah libur ?"
+  },
+  {
+    "id": "chat_1_conv_034_a",
+    "ringkas": "[30/01/25 08.15] ADMIN: selamat pagi, silahkan ada yang bisa kami bantu?",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[30/01/25 08.15] ADMIN: selamat pagi, silahkan ada yang bisa kami bantu?"
+  },
+  {
+    "id": "chat_1_conv_037_a",
+    "ringkas": "[27/02/25 14.18] ADMIN: Selamat siang [27/02/25 14.19] CLIENT: Siank pak [27/02/25 14.19] ADMIN: Bisa dibantu ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[27/02/25 14.18] ADMIN: Selamat siang [27/02/25 14.19] CLIENT: Siank pak [27/02/25 14.19] ADMIN: Bisa dibantu untuk videokan alur terkait kendala retur yang dialami ya bu [27/02/25 14.20] ADMIN: Karena kami coba disini sesuai dengan kendala dialami, bisa dan tidak ada kendala [27/02/25 14.20] CLIENT: Baik pak sebentra [27/02/25 15.57] CLIENT: <Media tidak disertakan> Maaf pak ini kompternya setelah restart [27/02/25 15.58] CLIENT: Zahirnya gak mau di buka [27/02/25 15.59] ADMIN: Coba pilih detail kemudian fotokan [27/02/25 15.59] CLIENT: <Media tidak disertakan> [27/02/25 16.01] ADMIN: Datanya berada dimana bu? [27/02/25 16.01] ADMIN: Dibantu fotokan juga menu buka datanya [27/02/25 16.02] CLIENT: <Media tidak disertakan> [27/02/25 16.02] ADMIN: Datanya berada dimana bu? [27/02/25 16.02] CLIENT: <Media tidak disertakan> [27/02/25 16.02] ADMIN: Komputer yang sama atau berbeda? [27/02/25 16.03] CLIENT: Komputer sama pak [27/02/25 16.03] ADMIN: Silakan coba pilih buka data kemudian arahkan ke datanya [27/02/25 16.05] CLIENT: Pesan ini dihapus [27/02/25 16.06] CLIENT: <Media tidak disertakan> [27/02/25 16.06] CLIENT: <Media tidak disertakan> Tetap pak [27/02/25 16.08] ADMIN: coba dibuka folder yang ada databasenya [27/02/25 16.08] ADMIN: fotokan [27/02/25 16.09] CLIENT: <Media tidak disertakan> [27/02/25 16.13] ADMIN: Silakan coba cek firebirdnya di services bu [27/02/25 16.13] ADMIN: tekan logo windows pada keyboard > cari services [27/02/25 16.16] CLIENT: <Media tidak disertakan> [27/02/25 16.16] ADMIN: coba dijalankan ultraviewernya saya bantu cek kendalanya [27/02/25 16.16] CLIENT: <Media tidak disertakan> [27/02/25 16.21] ADMIN: Di sana ada data backupnya bu? [27/02/25 16.21] ADMIN: Sepertinya datanya mengalami kendala [27/02/25 16.21] CLIENT: Gada pak [27/02/25 16.22] ADMIN: kalo menggunakan data yang satunya yang copy bagaimana? [27/02/25 16.23] CLIENT: Ya gpp pak di coba dlu , tapi itu tadi yang copy tak buat ngirim ke zahir dn tadi sudh di pkai ngerjakan [27/02/25 16.25] ADMIN: Data copynya juga tidak bisa ya bu, sepertinya dari windowsnya yang akhirnya membuat datanya corrupt [27/02/25 16.25] ADMIN: silakan bisa dikirimkan datanya melalui email di zahirsby@gmail.com [27/02/25 16.26] ADMIN: bisa dijadikan RAR/ZIP dulu agar tidak terlalu besar kapasitasnya [27/02/25 16.26] CLIENT: Baik pak sya kirimkan datanya sekrng"
+  },
+  {
+    "id": "chat_1_conv_038_a",
+    "ringkas": "[28/02/25 15.55] CLIENT: Sore pk , apakah ada info mengenai gdb saya ? [28/02/25 16.06] ADMIN: selamat sore [2...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "DATABASE_SYSTEM_ERROR",
+    "tipe_rec": "LABEL_LAMA",
+    "alasan": "Percakapan membahas perbaikan file database yang corrupt atau error engine Firebird.",
+    "full": "[28/02/25 15.55] CLIENT: Sore pk , apakah ada info mengenai gdb saya ? [28/02/25 16.06] ADMIN: selamat sore [28/02/25 16.07] ADMIN: mengenai kendalanya masih dalam antrian pengecekkan database ya bu [28/02/25 16.07] ADMIN: nanti kami infokan kembali jika sudah ketemu solusinya [28/02/25 16.09] CLIENT: Baik pak . Minta tlng ya pak untuk segera di info , soalnya gak bsa ngerjakan sama sekali . 🙏🏻 [28/02/25 16.10] ADMIN: baik ibu"
+  },
+  {
+    "id": "chat_1_conv_042_a",
+    "ringkas": "[22/07/25 08.36] CLIENT: Pesan ini dihapus [22/07/25 08.36] CLIENT: Pesan ini dihapus [22/07/25 08.36] CLIENT:...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[22/07/25 08.36] CLIENT: Pesan ini dihapus [22/07/25 08.36] CLIENT: Pesan ini dihapus [22/07/25 08.36] CLIENT: Pesan ini dihapus [22/07/25 08.36] CLIENT: Pesan ini dihapus [22/07/25 08.37] CLIENT: Pesan ini dihapus [22/07/25 08.37] CLIENT: Pesan ini dihapus"
+  },
+  {
+    "id": "chat_1_conv_045_a",
+    "ringkas": "[27/08/25 13.53] CLIENT: <Media tidak disertakan> Pak ini aku liat semua barang isinya begini semua [27/08/25 ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[27/08/25 13.53] CLIENT: <Media tidak disertakan> Pak ini aku liat semua barang isinya begini semua [27/08/25 13.53] CLIENT: Tapi ini blum disa saya posting [27/08/25 13.54] CLIENT: Bisa minta tlong di remot saja ? [27/08/25 13.54] CLIENT: Kemarin ada maslah yang sama juga di remot [27/08/25 13.55] ADMIN: baik, silakan coba aktifkan remote ultraviewernya [27/08/25 13.55] CLIENT: <Media tidak disertakan> [27/08/25 13.55] CLIENT: Baik pak ini [27/08/25 14.05] ADMIN: ok kami coba login bu [27/08/25 14.05] CLIENT: Baik pak [27/08/25 14.12] CLIENT: Mati pak kmpternya? [27/08/25 14.13] ADMIN: remotenya terputus bu bisa dibantu cek kneksinya [27/08/25 14.13] ADMIN: baik nanti kalau sudah siap diinfo kembali id remotenya ya [27/08/25 14.15] CLIENT: <Media tidak disertakan> Ini ya pak kote baru [27/08/25 14.16] ADMIN: baik [27/08/25 14.19] ADMIN: silahkan coba login dan psoting transaksinya [27/08/25 14.21] CLIENT: Iya pak bisa [27/08/25 14.21] CLIENT: Terima kasih🙏🏻 [27/08/25 14.22] ADMIN: baik sama sama"
+  },
+  {
+    "id": "chat_1_conv_047_a",
+    "ringkas": "[24/11/25 13.31] CLIENT: Pesan ini dihapus [24/11/25 13.31] CLIENT: Pesan ini dihapus [24/11/25 13.31] CLIENT:...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[24/11/25 13.31] CLIENT: Pesan ini dihapus [24/11/25 13.31] CLIENT: Pesan ini dihapus [24/11/25 13.31] CLIENT: Pesan ini dihapus [24/11/25 13.32] CLIENT: Pesan ini dihapus [24/11/25 13.33] CLIENT: Pesan ini dihapus"
+  },
+  {
+    "id": "chat_1_conv_049_a",
+    "ringkas": "[11/06/26 12.41] CLIENT: <Media tidak disertakan> Maaf pak ini email kx belum ada balasan ya ? [11/06/26 13.09...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[11/06/26 12.41] CLIENT: <Media tidak disertakan> Maaf pak ini email kx belum ada balasan ya ? [11/06/26 13.09] ADMIN: Selamat siang [11/06/26 13.09] ADMIN: emailnya sudah dibalas barusan [11/06/26 13.09] ADMIN: bisa di cek kembali ya kak [11/06/26 13.09] ADMIN: Terima kasih"
+  },
+  {
+    "id": "chat_1_conv_055_a",
+    "ringkas": "[27/07/26 09.40] CLIENT: <Media tidak disertakan> [27/07/26 09.43] ADMIN: Berdasarkan data kami, layanan Zahir...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[27/07/26 09.40] CLIENT: <Media tidak disertakan> [27/07/26 09.43] ADMIN: Berdasarkan data kami, layanan Zahir Customer Care untuk data perusahaan Bapak/Ibu telah berakhir. Untuk sementara waktu selama belum melakukan perpanjangan, mohon sampaikan pertanyaan/kendala melalui email di: 📧 zahirsby@gmail.com (kendala aplikasi & data) Tanyakan kepada kami di sini untuk mekanisme berlangganan/perpanjangan layanan. Khusus untuk permintaan atau kendala aktivasi Zahir, kami tetap melayani melalui Zahir Chat."
+  },
+  {
+    "id": "chat_1_conv_056_a",
+    "ringkas": "[12/08/26 10.42] CLIENT: <Media tidak disertakan> Maaf pak saya bru ngirimkn emaill permasalahan .. Mohon bant...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[12/08/26 10.42] CLIENT: <Media tidak disertakan> Maaf pak saya bru ngirimkn emaill permasalahan .. Mohon bantuannya🙏🏻 [12/08/26 10.43] ADMIN: Menunggu pesan ini [12/08/26 10.43] ADMIN: Menunggu pesan ini [12/08/26 10.44] ADMIN: Menunggu pesan ini [12/08/26 12.21] CLIENT: Baik terima kasih"
+  },
+  {
+    "id": "chat_1_conv_058_d",
+    "ringkas": "",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": ""
+  },
+  {
+    "id": "chat_2_conv_017_a",
+    "ringkas": "[31/05/25 10.03] ADMIN: Selamat pagi [31/05/25 10.03] ADMIN: Bisa bu",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[31/05/25 10.03] ADMIN: Selamat pagi [31/05/25 10.03] ADMIN: Bisa bu"
+  },
+  {
+    "id": "chat_2_conv_030_b",
+    "ringkas": "",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": ""
+  },
+  {
+    "id": "chat_2_conv_045_a",
+    "ringkas": "[19/05/26 08.55] ADMIN: pagi bu, jadi kalau ada yagn salah dia akan rollback sistem akan menolak mengeksekusi,...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[19/05/26 08.55] ADMIN: pagi bu, jadi kalau ada yagn salah dia akan rollback sistem akan menolak mengeksekusi, jadi harus benar semua baru akan di proses oleh sistem. jika ada yang salah maka harus dibetulkan dulu yang salah kemudian di upload ulang [19/05/26 09.20] CLIENT: pagi pak, saya kan sudah membetulkan, tapi ada keterangan index sudah dipakai [19/05/26 09.21] ADMIN: klik menu file > alat bantu > reset nomor index [19/05/26 09.21] ADMIN: jika sudah coba upload lagi bu [19/05/26 09.21] CLIENT: saya coba ya pak [19/05/26 09.22] ADMIN: silahkan [19/05/26 09.23] CLIENT: <Media tidak disertakan> Pak ini diklik ya? [19/05/26 09.24] CLIENT: Nomor index ini yang mana sana pak? Aka tidak akan menghapus data lainnya?  Takutnya data lain terhapus pak [19/05/26 09.29] ADMIN: klik ya [19/05/26 09.29] ADMIN: dia tidak akan menghapus [19/05/26 09.29] ADMIN: transksi yang lain [19/05/26 09.29] CLIENT: Baik pak [19/05/26 09.38] CLIENT: <Media tidak disertakan> Saya sudah hapus index  tapi keterangannya tetap seperti ini pak [19/05/26 09.42] ADMIN: ini warningnya beda denga yang tadi, kalau ini kode sales EMPL-1 tidak ditemukan, coba dicek kode karyawan itu di datanya tidak ada, atau cek di csv excelnya mungkin ada spasi di belakangnya [19/05/26 09.42] CLIENT: baik pak [19/05/26 09.43] CLIENT: tapi data employ saya sudah copas dari tarikan data karyawan pak [19/05/26 09.43] ADMIN: coba dipastikan dulu spasi atau enternya ya bu, karena itu sama sistem terbaca tidak ada kode terebut [19/05/26 09.50] CLIENT: <Media tidak disertakan> muncul keternagan ini pak [19/05/26 09.50] ADMIN: klik detail lalu bisa difotokan kembali [19/05/26 09.51] CLIENT: <Media tidak disertakan> lalu muncul keternagn ini , padahal sales usdha saya ganti dan sudah saya cek spasinya pak [19/05/26 10.00] ADMIN: coba di ketik di data kontak kode EMPL-47 ada atau tidak [19/05/26 10.04] CLIENT: <Media tidak disertakan> Ada pak [19/05/26 10.04] CLIENT: kodenya saya copas dari data tarikan pak [19/05/26 10.08] ADMIN: coba diiketik pastikan akhirnya tanpa spasi, kalau kopas langsung biasanya di bagian akhir ada 1 spasi [19/05/26 10.11] CLIENT: <Media tidak disertakan> Sudah saya ketik manual tapi tetap salah pak [19/05/26 10.11] ADMIN: coba saya remote ya [19/05/26 10.11] ADMIN: berapa id pas remotenya [19/05/26 10.12] CLIENT: bai pak [19/05/26 10.13] CLIENT: <Media tidak disertakan> [19/05/26 10.13] ADMIN: format csvnya yang mana bu [19/05/26 10.18] CLIENT: wait pak [19/05/26 10.19] CLIENT: <Media tidak disertakan> Ini pak [19/05/26 10.20] CLIENT: 2. Contoh format [19/05/26 10.21] ADMIN: coba plugin kembali [19/05/26 10.25] CLIENT: Muncul keterangan ini pak [19/05/26 10.33] ADMIN: ok sudah bisa ya [19/05/26 10.34] CLIENT: Baik Pak [19/05/26 10.34] ADMIN: coba dicek pakai file TES PLUGIN PENJUALAN yang ada di desktop [19/05/26 10.34] CLIENT: Tadi saya salah apa saja pak? [19/05/26 10.36] ADMIN: jadi kelsahannya tadi : 1. kolom nama salesman seharusnya diisi nama salesnya bukan kode salesnya 2. tgl jatuh temponya salah 3. jika merasa sudah ebnar semua copy paste di file baru dan save as ke csv comma delimited, usahakan file yang di upload jangan lewat jaringan tapi di tarus di komputer sendiri (lokal) [19/05/26 10.37] CLIENT: Baik pak [19/05/26 10.37] CLIENT: Pak, untuk tgl jatuh temponya apa harus diisi? [19/05/26 10.38] CLIENT: Pak, ijin saya hapus ya pak untuk ikutan tadi. Karena itu data asal pak 🙏🏾 [19/05/26 10.44] ADMIN: tidak harus [19/05/26 10.44] ADMIN: bisa dikosongin saja [19/05/26 10.46] CLIENT: Baik pak"
+  },
+  {
+    "id": "chat_2_conv_056_a",
+    "ringkas": "[13/08/26 08.19] ADMIN: Menunggu pesan ini [13/08/26 08.21] ADMIN: Menunggu pesan ini [13/08/26 08.22] CLIENT:...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[13/08/26 08.19] ADMIN: Menunggu pesan ini [13/08/26 08.21] ADMIN: Menunggu pesan ini [13/08/26 08.22] CLIENT: Baik, terimakasih info nya pak 🙏🏻 [13/08/26 08.29] ADMIN: Menunggu pesan ini [13/08/26 08.36] ADMIN: Menunggu pesan ini"
+  },
+  {
+    "id": "chat_2_conv_060_a",
+    "ringkas": "[04/09/26 08.06] CLIENT: IMG-20260908-WA0002.jpg (file terlampir) Selamat pagi pak [04/09/26 08.06] CLIENT: <M...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[04/09/26 08.06] CLIENT: IMG-20260908-WA0002.jpg (file terlampir) Selamat pagi pak [04/09/26 08.06] CLIENT: <Media tidak disertakan> berikut ultranya pak"
+  },
+  {
+    "id": "chat_3_conv_001_a",
+    "ringkas": "[01/10/22 16.33] SYSTEM: Pesan dan telepon terenkripsi secara end-to-end. Hanya orang di obrolan ini yang bisa...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[01/10/22 16.33] SYSTEM: Pesan dan telepon terenkripsi secara end-to-end. Hanya orang di obrolan ini yang bisa membaca, mendengarkan, atau membagikannya. *Pelajari selengkapnya*. [30/09/22 10.00] ADMIN: Menunggu pesan ini [30/09/22 09.55] CLIENT: Menunggu pesan ini"
+  },
+  {
+    "id": "chat_3_conv_007_a",
+    "ringkas": "[27/12/22 13.36] CLIENT: Siang pak [27/12/22 13.36] CLIENT: Saya drtd hubungi tlp kok tidak ada yg angkat teru...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[27/12/22 13.36] CLIENT: Siang pak [27/12/22 13.36] CLIENT: Saya drtd hubungi tlp kok tidak ada yg angkat terus ya [27/12/22 13.36] CLIENT: Saya sudah tlp secara berkala tetap tidak terangkat [27/12/22 13.51] ADMIN: Selamat siang [27/12/22 13.51] ADMIN: Saya Rafli, ada yg bisa dibantu? [27/12/22 13.51] ADMIN: mohon ditunggu sebentar [27/12/22 13.51] CLIENT: Pak rafli saya mau tlp bisa? [27/12/22 13.52] CLIENT: Saya hubungi kantor tidak bisa"
+  },
+  {
+    "id": "chat_3_conv_008_a",
+    "ringkas": "[28/12/22 13.25] ADMIN: siang [28/12/22 13.25] ADMIN: bs diinfokan remotenya bu [28/12/22 13.26] CLIENT: Ultra...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[28/12/22 13.25] ADMIN: siang [28/12/22 13.25] ADMIN: bs diinfokan remotenya bu [28/12/22 13.26] CLIENT: Ultraviewer Id : 46517753 Pasword : 5629"
+  },
+  {
+    "id": "chat_3_conv_009_a",
+    "ringkas": "[05/01/23 10.25] CLIENT: Pak rafli saya mau tlp bisa? [05/01/23 10.25] CLIENT: Saya hubungi kantor tidak bisa ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[05/01/23 10.25] CLIENT: Pak rafli saya mau tlp bisa? [05/01/23 10.25] CLIENT: Saya hubungi kantor tidak bisa [05/01/23 10.32] ADMIN: mohon maaf utk pak rafli adanya siang selepas istirahat [05/01/23 10.32] CLIENT: jam berapa pak? [05/01/23 10.33] ADMIN: silahkan bs dicoba jam 13.30 [05/01/23 10.33] CLIENT: oke pak [05/01/23 14.22] CLIENT: Saya hubungi kantor tidak bisa"
+  },
+  {
+    "id": "chat_3_conv_012_a",
+    "ringkas": "[09/01/23 10.41] CLIENT: Pak rafli apa bisa dihubungi? [09/01/23 11.53] ADMIN: untuk pak rafli jam 9 tadi suda...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[09/01/23 10.41] CLIENT: Pak rafli apa bisa dihubungi? [09/01/23 11.53] ADMIN: untuk pak rafli jam 9 tadi sudah ke klien ib [09/01/23 12.06] CLIENT: kapan pak Rafli ada dikantor pak? [09/01/23 13.41] ADMIN: besok pagi jam 8 bu [09/01/23 15.38] CLIENT: Baik pak"
+  },
+  {
+    "id": "chat_3_conv_014_a",
+    "ringkas": "[12/01/23 10.40] ADMIN: Selamat pagi [12/01/23 10.40] ADMIN: Mohon maaf untuk konsultasi dengan Pak Rafli, bes...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[12/01/23 10.40] ADMIN: Selamat pagi [12/01/23 10.40] ADMIN: Mohon maaf untuk konsultasi dengan Pak Rafli, besok siang apa tidak masalah? [12/01/23 10.41] ADMIN: soalnya kebetulan ada reschedule jadwal training yg sebelumnya siang diganti pagi [12/01/23 10.41] CLIENT: Pagii [12/01/23 10.41] CLIENT: Jam berapa pak? [12/01/23 10.43] ADMIN: stgh 2 siang [12/01/23 10.56] CLIENT: Iya pak [12/01/23 10.56] CLIENT: Minta tolong ya pak Jangan reschedule lagi [12/01/23 10.56] CLIENT: Kita juga lagi urgent [12/01/23 10.56] CLIENT: Terimakasih [12/01/23 11.07] ADMIN: baik [12/01/23 11.07] ADMIN: terima kasih kembali"
+  },
+  {
+    "id": "chat_3_conv_015_a",
+    "ringkas": "[13/01/23 13.35] CLIENT: Pak, Apa bisa dihubungi sekarang? [13/01/23 16.15] ADMIN: Selamat sore [13/01/23 16.1...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[13/01/23 13.35] CLIENT: Pak, Apa bisa dihubungi sekarang? [13/01/23 16.15] ADMIN: Selamat sore [13/01/23 16.15] ADMIN: maaf apa ada no yg bisa dihubungi? [13/01/23 16.15] ADMIN: saya telpon sebentar lagi [13/01/23 16.16] CLIENT: 3522322 Up Dyah [13/01/23 16.16] CLIENT: Ini yaa [13/01/23 16.29] ADMIN: baik [13/01/23 16.32] ADMIN: tadi saya telpon katanya Ibu Dyah masih Online [13/01/23 16.32] ADMIN: kalau sudah ready bisa kabari ya [13/01/23 16.32] CLIENT: Sudah pak [13/01/23 16.32] CLIENT: Bisa sekarang [13/01/23 16.33] CLIENT: Apa saya yg tlp zahir? [13/01/23 16.34] ADMIN: saya aja gpp [13/01/23 16.34] CLIENT: Oke pak ditunggu"
+  },
+  {
+    "id": "chat_3_conv_016_a",
+    "ringkas": "[17/01/23 16.29] CLIENT: Sore pak [17/01/23 16.30] CLIENT: Saya minta tolong dijadwalkan telpon dengan pak Raf...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[17/01/23 16.29] CLIENT: Sore pak [17/01/23 16.30] CLIENT: Saya minta tolong dijadwalkan telpon dengan pak Rafly [17/01/23 16.30] CLIENT: Bisa hari apa ya? [17/01/23 16.31] CLIENT: Besok bisa? [17/01/23 17.01] ADMIN: sore [17/01/23 17.01] ADMIN: besok pagi bisa bu [17/01/23 17.01] ADMIN: pak rafli ada di jam 8.30-12.00 [17/01/23 17.02] CLIENT: Oke sipp pak, besok pagi saya telpon [17/01/23 17.02] CLIENT: Dapat jam berapa pak?"
+  },
+  {
+    "id": "chat_3_conv_018_a",
+    "ringkas": "[20/01/23 14.52] CLIENT: Siang pak [20/01/23 14.52] CLIENT: Pak, saya bisa minta tolong dhubungkan dengan pak ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[20/01/23 14.52] CLIENT: Siang pak [20/01/23 14.52] CLIENT: Pak, saya bisa minta tolong dhubungkan dengan pak Rafly?"
+  },
+  {
+    "id": "chat_3_conv_019_a",
+    "ringkas": "[25/01/23 11.51] CLIENT: Siang pak [25/01/23 11.52] CLIENT: Saya bisa telpon zahir? [25/01/23 11.52] CLIENT: S...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[25/01/23 11.51] CLIENT: Siang pak [25/01/23 11.52] CLIENT: Saya bisa telpon zahir? [25/01/23 11.52] CLIENT: Saya ada perlu dengan pak Rafly [25/01/23 11.52] CLIENT: Minta tolong"
+  },
+  {
+    "id": "chat_3_conv_020_a",
+    "ringkas": "[26/01/23 11.47] CLIENT: Pagi pak [26/01/23 11.47] CLIENT: Kok tidak ada respon sama sekali ya? [26/01/23 13.0...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[26/01/23 11.47] CLIENT: Pagi pak [26/01/23 11.47] CLIENT: Kok tidak ada respon sama sekali ya? [26/01/23 13.08] ADMIN: selamat siang, mohon maaf pak rafli dari jumat kemarin sdh ada jadwal full, dan selasa rabu kamis ini sdg luar kota [26/01/23 13.08] ADMIN: baru ada di besok pagi ya bu [26/01/23 13.09] ADMIN: sdh kami infokan ke pak rafli supaya besok bs follow up ke dayara [26/01/23 13.13] ADMIN: besok pak rafli ada di kantor dari pukul 08.00-11.00 [26/01/23 13.33] CLIENT: Baik pak tolong jadwalin ya Terimakasih [26/01/23 13.33] CLIENT: Minta tolong lain kali info ya pak Biar kita tahu dan tidak bingung Terimakasih 🙏🙏 [26/01/23 13.35] ADMIN: baik sdh dijadwalkan ya bu [26/01/23 13.35] ADMIN: baik sama2 bu 🙏"
+  },
+  {
+    "id": "chat_3_conv_021_a",
+    "ringkas": "[27/01/23 08.44] CLIENT: pagi pak [27/01/23 08.45] CLIENT: pak rafli apa sudah ready ? [27/01/23 08.51] ADMIN:...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[27/01/23 08.44] CLIENT: pagi pak [27/01/23 08.45] CLIENT: pak rafli apa sudah ready ? [27/01/23 08.51] ADMIN: selamat pagi [27/01/23 08.51] ADMIN: Insha Allah jam 9 ya bu [27/01/23 09.03] CLIENT: saya yg tlp atau pak rafli yg hubungi saya ? [27/01/23 09.04] ADMIN: Silahkan bisa hubungi kantor saja [27/01/23 09.16] CLIENT: iya pak terimakasih [27/01/23 09.55] CLIENT: Pak [27/01/23 09.55] CLIENT: Saya hubungi no kantor tidak ada nada sambungnya ya? [27/01/23 09.56] ADMIN: saya telpon saja ya [27/01/23 09.56] ADMIN: ada no yg bisa dihubungi? [27/01/23 09.56] CLIENT: 3522322"
+  },
+  {
+    "id": "chat_3_conv_022_a",
+    "ringkas": "[01/02/23 13.04] CLIENT: Siang Zahir [01/02/23 13.08] CLIENT: Dayara minta kunjungan Hari Senin  tgl 6 Februar...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[01/02/23 13.04] CLIENT: Siang Zahir [01/02/23 13.08] CLIENT: Dayara minta kunjungan Hari Senin  tgl 6 Februari 2023 Jam 09.00 Kunjungan pak Rafli Sebelumnya sudah bilang sama pak Rafli pak [01/02/23 13.11] ADMIN: selamatsiang [01/02/23 13.12] ADMIN: baik sdh dijadwalkan ya bu [01/02/23 13.26] CLIENT: Baik pak Terimakasih [01/02/23 13.58] ADMIN: baik sama2"
+  },
+  {
+    "id": "chat_3_conv_023_a",
+    "ringkas": "[06/02/23 08.07] CLIENT: Pagi. Pak rafli jadi kunjungan ke dayara hari ini ? [06/02/23 08.11] ADMIN: Pagi.. Jd...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[06/02/23 08.07] CLIENT: Pagi. Pak rafli jadi kunjungan ke dayara hari ini ? [06/02/23 08.11] ADMIN: Pagi.. Jd bu [06/02/23 08.15] CLIENT: Jl. Songoyudan no. 6 Toko rosaria"
+  },
+  {
+    "id": "chat_3_conv_024_a",
+    "ringkas": "[20/03/23 11.05] CLIENT: Ultaviewer Id 46517753 Pass 6378 [20/03/23 11.07] ADMIN: BAIK [20/03/23 11.16] ADMIN:...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[20/03/23 11.05] CLIENT: Ultaviewer Id 46517753 Pass 6378 [20/03/23 11.07] ADMIN: BAIK [20/03/23 11.16] ADMIN: sdh bisa ya bu [20/03/23 11.16] ADMIN: silahkan bs dicek kembali [20/03/23 11.23] CLIENT: Iya sudah pak [20/03/23 11.23] CLIENT: Terimakasih [20/03/23 11.26] ADMIN: sama sama"
+  },
+  {
+    "id": "chat_3_conv_027_a",
+    "ringkas": "[15/11/23 08.33] ADMIN: Selamat pagi, saya calvin. Sekedar mengingatkan terkait penawaran perpanjangan custome...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[15/11/23 08.33] ADMIN: Selamat pagi, saya calvin. Sekedar mengingatkan terkait penawaran perpanjangan customer care yang sudah pernah kami berikan. Harga promo hanya berlaku hingga akhir bulan November 2023. Jika ada yang kurang jelas dan ingin ditanyakan silakan hubungi kami. [15/11/23 08.33] ADMIN: Terima kasih [15/11/23 11.57] CLIENT: Baiklah  terimakasih [15/11/23 11.57] CLIENT: saya ajukan dulu [15/11/23 13.03] ADMIN: Baik, kami tunggu kabar baiknya"
+  },
+  {
+    "id": "chat_3_conv_028_a",
+    "ringkas": "[27/11/23 09.25] ADMIN: Selamat pagi, sekedar mengingatkan terkait penawaran perpanjangan customer care yang s...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[27/11/23 09.25] ADMIN: Selamat pagi, sekedar mengingatkan terkait penawaran perpanjangan customer care yang sudah pernah kami berikan. Harga promo hanya berlaku hingga akhir bulan November 2023. Jika ada yang kurang jelas dan ingin ditanyakan silakan hubungi kami. [27/11/23 09.25] ADMIN: Terima kasih"
+  },
+  {
+    "id": "chat_3_conv_033_a",
+    "ringkas": "[22/12/23 10.52] ADMIN: Selamat siang [22/12/23 10.54] ADMIN: Sekedar mengingatkan untuk penawaran perpanjanga...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[22/12/23 10.52] ADMIN: Selamat siang [22/12/23 10.54] ADMIN: Sekedar mengingatkan untuk penawaran perpanjangan customer care yang pernah kami berikan sebelumnya, harga promo berlaku hingga 25 Desember 2023. Jika masih ada yang belum jelas dan ingin ditanyakan jangan ragu untuk menghubungi kami. [22/12/23 10.54] ADMIN: Terima kasih"
+  },
+  {
+    "id": "chat_3_conv_036_a",
+    "ringkas": "[10/05/24 10.49] CLIENT: Zahir [10/05/24 10.49] CLIENT: Hari ini buka? [10/05/24 10.49] CLIENT: Saya rencana m...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[10/05/24 10.49] CLIENT: Zahir [10/05/24 10.49] CLIENT: Hari ini buka? [10/05/24 10.49] CLIENT: Saya rencana mau perpanjangan"
+  },
+  {
+    "id": "chat_3_conv_037_a",
+    "ringkas": "[11/05/24 10.07] ADMIN: selamat pagi [11/05/24 10.09] ADMIN: baik, mungkin bisa diinformasikan nomor seri zahi...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[11/05/24 10.07] ADMIN: selamat pagi [11/05/24 10.09] ADMIN: baik, mungkin bisa diinformasikan nomor seri zahirnya terlebih dahulu [11/05/24 12.38] CLIENT: Nomor seri 8083141, 8083142,8083143 [11/05/24 13.11] ADMIN: baik bu, ini utk perpanjangan customer care 1 year ya? [11/05/24 13.13] CLIENT: Iya benar [11/05/24 13.13] ADMIN: baik, kami bantu buatkan penawarannya terlebih dahulu ya bu [11/05/24 13.26] ADMIN: <Media tidak disertakan> berikut saya kirimkan surat penawaran perpanjangan customer care 1 year [11/05/24 14.22] CLIENT: baiklah Terimakasih [11/05/24 14.31] ADMIN: baik sama2 bu, kami tunggu kabar baiknya 😊"
+  },
+  {
+    "id": "chat_3_conv_039_a",
+    "ringkas": "[14/05/24 09.56] CLIENT: <Media tidak disertakan> [14/05/24 10.57] ADMIN: telponnya terputus ya bu [14/05/24 1...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[14/05/24 09.56] CLIENT: <Media tidak disertakan> [14/05/24 10.57] ADMIN: telponnya terputus ya bu [14/05/24 11.25] CLIENT: Iya pak masih lampu matii [14/05/24 14.40] CLIENT: Pak [14/05/24 14.41] CLIENT: Kalo saya tambah 1 program Zahir itu apakah ada biaya? [14/05/24 14.42] CLIENT: Jadi tambah 1 line [14/05/24 14.42] ADMIN: untuk penambahan paket zahir akan dikenakan biaya bu, namun untuk user existing nantinya akan ada diskon [14/05/24 14.42] ADMIN: jika berkenan bisa kami bantu buatkan penawarannya [14/05/24 14.42] CLIENT: Oke pak [14/05/24 14.42] CLIENT: Boleh pak? [14/05/24 14.43] ADMIN: baik mohon ditunggu sebentar [14/05/24 15.05] ADMIN: Anda menghapus pesan ini [14/05/24 15.09] ADMIN: IMG-20240515-WA0003.jpg (file terlampir) Berikut untuk surat penawaran penambahan paket zahirnya, silakan bisa dicek dan dipelajari dulu. Jika ada yang kurang jelas jangan ragu untuk menghubungi kami. [14/05/24 15.19] CLIENT: ini sudah disamain dengan program Zahir sebelumnya? [14/05/24 15.21] ADMIN: sudah bu"
+  },
+  {
+    "id": "chat_3_conv_042_a",
+    "ringkas": "[20/05/24 16.21] ADMIN: selamat sore, sekedar informasi bu utk penawaran ini berlaku hingga hari ini saja ya b...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[20/05/24 16.21] ADMIN: selamat sore, sekedar informasi bu utk penawaran ini berlaku hingga hari ini saja ya bu"
+  },
+  {
+    "id": "chat_3_conv_043_a",
+    "ringkas": "[28/05/24 11.15] ADMIN: selamat siang [28/05/24 11.16] ADMIN: <Media tidak disertakan> Faktur Pajak 1.pdf [28/...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAPORAN_REPORTING",
+    "tipe_rec": "LABEL_LAMA",
+    "alasan": "Percakapan membahas permintaan kustomisasi, pencetakan, atau masalah tampilan laporan.",
+    "full": "[28/05/24 11.15] ADMIN: selamat siang [28/05/24 11.16] ADMIN: <Media tidak disertakan> Faktur Pajak 1.pdf [28/05/24 11.16] CLIENT: Siang [28/05/24 11.16] CLIENT: terimakasih"
+  },
+  {
+    "id": "chat_3_conv_048_a",
+    "ringkas": "[04/11/24 10.20] CLIENT: <Media tidak disertakan> Terlampir masalah yg dialami dayara [04/11/24 10.22] ADMIN: ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[04/11/24 10.20] CLIENT: <Media tidak disertakan> Terlampir masalah yg dialami dayara [04/11/24 10.22] ADMIN: Selamat pagi [04/11/24 10.22] ADMIN: Bisa coba ditunjukkan detail inputan transaksinya ya bu [04/11/24 10.24] CLIENT: <Media tidak disertakan> [04/11/24 10.29] ADMIN: Baik, coba ke data-data > data produk > cari produk tersebut > fotokan [04/11/24 10.37] CLIENT: <Media tidak disertakan> [04/11/24 10.40] ADMIN: Coba klik 2x/edit <Pesan ini diedit> [04/11/24 10.58] CLIENT: <Media tidak disertakan> [04/11/24 11.06] ADMIN: pastikan sudah dilakukan hitung ulang saldo akhir persediaan/persediaan > start hitung ulang [04/11/24 12.18] CLIENT: Sudah 2x saya lakukan tetap tidak bisa pak [04/11/24 13.50] ADMIN: silakan aktifkan remote ultraviewernya [04/11/24 14.03] CLIENT: 73371763 [04/11/24 14.03] CLIENT: Password 23912"
+  },
+  {
+    "id": "chat_3_conv_049_a",
+    "ringkas": "[04/12/24 11.20] ADMIN: <Media tidak disertakan> sesuai komunikasi sebelumnya dengan bu septi, berikut kami la...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[04/12/24 11.20] ADMIN: <Media tidak disertakan> sesuai komunikasi sebelumnya dengan bu septi, berikut kami lampirkan surat penawaran zahir flexy trade NB : jika saat penggunaan ada fitur/modul yg kurang bisa ditambahkan sesuai dgn pricelist [04/12/24 13.11] ADMIN: siang bu, silakan saat ini bisa menghubungi kembali [04/12/24 14.57] ADMIN: <Media tidak disertakan> [04/12/24 14.58] ADMIN: berikut revisi penawarannya ya bu"
+  },
+  {
+    "id": "chat_3_conv_052_a",
+    "ringkas": "[10/12/24 08.58] CLIENT: <Media tidak disertakan> [10/12/24 08.58] CLIENT: Pagi Zahir [10/12/24 08.58] CLIENT:...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[10/12/24 08.58] CLIENT: <Media tidak disertakan> [10/12/24 08.58] CLIENT: Pagi Zahir [10/12/24 08.58] CLIENT: Terlampir bukti bayar [10/12/24 09.04] ADMIN: selamat pagi [10/12/24 09.04] ADMIN: baik, kami forward dulu ke bagian finance utk di proses lebih lanjut [10/12/24 09.16] CLIENT: Baiklah [10/12/24 09.19] ADMIN: <Media tidak disertakan> Faktur dan Kwitansi DAYARA LAUT SEJAHTERA, PT 2.pdf [10/12/24 09.19] ADMIN: Berikut kami lampirkan Faktur dan kwitansi pembeliannya [10/12/24 09.20] CLIENT: baik [10/12/24 10.56] CLIENT: Zahirnya bisa diproses kapan pak? [10/12/24 10.57] CLIENT: untuk program Zahir [10/12/24 10.59] ADMIN: hari ini sudah kami proses bu utk data register/kode aktivasi bisa kami kirimkan siang/sore ini atau paling lambat besok pagi [10/12/24 11.00] CLIENT: Baik"
+  },
+  {
+    "id": "chat_3_conv_053_a",
+    "ringkas": "[10/12/24 16.10] ADMIN: berikut kami kirimkan data register/kode aktivasi Zahir : Nama Perusahaan : DAYARA LAU...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[10/12/24 16.10] ADMIN: berikut kami kirimkan data register/kode aktivasi Zahir : Nama Perusahaan : DAYARA LAUT SEJAHTERA, PT *Nomor Seri : 311001469* Nama Paket : Flexi Trade Modul Tambahan : Multi Warehouse, Kode Fitur : 83C22-76008-1001C-00000 *Kode Aktivasi : B7K0XTLWU760*"
+  },
+  {
+    "id": "chat_3_conv_055_a",
+    "ringkas": "[13/12/24 15.25] CLIENT: <Media tidak disertakan> Ini ya pak Anam [13/12/24 15.26] ADMIN: baik kami sampaikan ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[13/12/24 15.25] CLIENT: <Media tidak disertakan> Ini ya pak Anam [13/12/24 15.26] ADMIN: baik kami sampaikan ke pak Anam ya bu untuk di proses [13/12/24 15.26] ADMIN: terima kasih atas konfirmasinya"
+  },
+  {
+    "id": "chat_3_conv_056_a",
+    "ringkas": "[18/12/24 14.22] CLIENT: Pak Kalvin [18/12/24 14.22] CLIENT: Gimana? [18/12/24 14.22] ADMIN: Sudah selesai bu,...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[18/12/24 14.22] CLIENT: Pak Kalvin [18/12/24 14.22] CLIENT: Gimana? [18/12/24 14.22] ADMIN: Sudah selesai bu, remotenya sudah saya tutup [18/12/24 14.22] ADMIN: Bagaimana? [18/12/24 15.25] CLIENT: Pesan ini dihapus [18/12/24 15.25] CLIENT: Pesan ini dihapus"
+  },
+  {
+    "id": "chat_3_conv_058_a",
+    "ringkas": "[24/12/24 11.16] ADMIN: https://zahir-jogja.blogspot.com/2016/01/langkah-langkah-import-e-faktur-pada.html [24...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[24/12/24 11.16] ADMIN: https://zahir-jogja.blogspot.com/2016/01/langkah-langkah-import-e-faktur-pada.html [24/12/24 11.16] ADMIN: https://zahir.info/index.php?/Knowledgebase/Article/View/260/14/bagaimana-cara-setting-nomor-seri-faktur-pajak [24/12/24 14.35] CLIENT: <Media tidak disertakan> [24/12/24 14.37] ADMIN: Baik bu, saya coba konek ya [24/12/24 15.08] ADMIN: bisa dicek chat remotenya ya bu [24/12/24 15.28] ADMIN: <Media tidak disertakan> saya close dulu ya bu krn blm ada respon [24/12/24 15.28] ADMIN: saya coba remote yg lain dulu, nanti jika ada apa2 bs chat kembali [24/12/24 15.28] CLIENT: tunggu pak [24/12/24 15.40] ADMIN: jadi syarat utk bisa melakukan export adalah  1. mengisi seri pajak 2. nilai pajak tdk boleh 0"
+  },
+  {
+    "id": "chat_3_conv_059_a",
+    "ringkas": "[27/12/24 08.04] CLIENT: Pagi Pak mau Follow up kendala FP yg dibebaskan hari selasa kemarin [27/12/24 08.44] ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[27/12/24 08.04] CLIENT: Pagi Pak mau Follow up kendala FP yg dibebaskan hari selasa kemarin [27/12/24 08.44] ADMIN: selamat pagi bu, mohon ditunggu ya bu utk yg handle sedang diluar [27/12/24 11.02] CLIENT: kabarnya hari ini kan pak ? [27/12/24 11.11] ADMIN: baik bu, mengenai Faktur Pajak yg dibebaskan untuk di Zahir jika tidak diinput pajak maka tidak bisa di ekspor atas invoice tersebut bu, dan informasi IT kami untuk transaksi tersebut di input manual di csv e faktur yang akan diimpor bu [27/12/24 13.33] CLIENT: diinput manual seperti apa ya pak ? [27/12/24 16.01] ADMIN: maksudnya input manual di aplikasi e fakturnya"
+  },
+  {
+    "id": "chat_3_conv_067_a",
+    "ringkas": "[11/02/25 08.33] CLIENT: Pagii [11/02/25 08.33] CLIENT: Pak jangan lupa dilanjutin yang kemarin yaa [11/02/25 ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[11/02/25 08.33] CLIENT: Pagii [11/02/25 08.33] CLIENT: Pak jangan lupa dilanjutin yang kemarin yaa [11/02/25 08.33] CLIENT: 🙏🏻 [11/02/25 09.11] ADMIN: selamat pagi [11/02/25 09.11] ADMIN: silakan dijalankan ultraviewernya [11/02/25 09.13] CLIENT: <Media tidak disertakan>"
+  },
+  {
+    "id": "chat_3_conv_074_a",
+    "ringkas": "[26/06/25 16.09] CLIENT: Sore Zahir [26/06/25 16.10] CLIENT: buat pak Dwi pak Dwi saya sudah nemu yang benar t...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[26/06/25 16.09] CLIENT: Sore Zahir [26/06/25 16.10] CLIENT: buat pak Dwi pak Dwi saya sudah nemu yang benar tapi kendalanya restore terus pak Dwi  Minta tolong ya pak Dwi kalo sudah bisa, kabari saya Terimakasih 🙏 [26/06/25 16.15] ADMIN: selamat sore [26/06/25 16.15] ADMIN: utk databasenya sudah benar yg ada new nya tadi ya bu? [26/06/25 16.16] CLIENT: beda pak,  ini saya nemu lagi yang plek [26/06/25 16.16] CLIENT: ternyata saya ada back up lain [26/06/25 16.16] ADMIN: baik bu [26/06/25 16.18] ADMIN: mungkin utk kendala restore/warning sesi berakhir/maximum user reached bisa dikirimkan databasenya ke email zahirsby@gmail.com [26/06/25 16.18] ADMIN: apabila databasenya tdk boleh keluar besok senin kami coba remote kembali [26/06/25 16.18] CLIENT: senin aja ya pak Dwi [26/06/25 16.19] ADMIN: baik bu"
+  },
+  {
+    "id": "chat_3_conv_075_a",
+    "ringkas": "[30/06/25 12.13] CLIENT: Siang pak Dwi [30/06/25 12.13] CLIENT: pak Dwi [30/06/25 12.13] CLIENT: habis istirah...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[30/06/25 12.13] CLIENT: Siang pak Dwi [30/06/25 12.13] CLIENT: pak Dwi [30/06/25 12.13] CLIENT: habis istirahat bisaa [30/06/25 13.06] ADMIN: selamat siang [30/06/25 13.06] ADMIN: di remote ya bu databasenya? [30/06/25 13.06] CLIENT: baik pak [30/06/25 13.07] CLIENT: <Media tidak disertakan> [30/06/25 13.07] ADMIN: baik [30/06/25 13.59] ADMIN: ini komputernya registernya menggunakan dongle bu ya bu? [30/06/25 13.59] CLIENT: Iya benar pak [30/06/25 13.59] ADMIN: berapa bu nomor serinya? [30/06/25 13.59] ADMIN: bisa dibantu fotokan atau infokan [30/06/25 13.59] CLIENT: 8083141 [30/06/25 14.01] ADMIN: baik, sbntar"
+  },
+  {
+    "id": "chat_3_conv_076_a",
+    "ringkas": "[01/07/25 08.03] CLIENT: Pagii Zahir [01/07/25 08.03] CLIENT: Pak Dwi bosku mintanya,  Pak Dwi ke kantor [01/0...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[01/07/25 08.03] CLIENT: Pagii Zahir [01/07/25 08.03] CLIENT: Pak Dwi bosku mintanya,  Pak Dwi ke kantor [01/07/25 08.32] ADMIN: pagi bu mengenai kendala yg dialami jika ingin mendatangkan dari tim Zahir dikenakan biaya onsite support 600rb bu [01/07/25 08.36] CLIENT: berapa lama pak? [01/07/25 08.40] ADMIN: maksimal 3 jam bu namun jika perbaikan databasenya kurang dari 3 jam maka dianggap selesai [01/07/25 09.22] CLIENT: dalam 3 jam seumpama ada case lain boleh pak? [01/07/25 09.38] ADMIN: boleh bu, namun case lain tersebut memerlukan waktu lebih dikenakan charge tambahan lagi [01/07/25 09.51] CLIENT: kalo memang tambah waktu ya pak [01/07/25 09.52] CLIENT: kalo cukup waktu berarti gak ada charge ya pak [01/07/25 10.42] ADMIN: iya bu [01/07/25 11.06] CLIENT: kalo saya ajukan bisa kapan pak? [01/07/25 11.11] ADMIN: kami bantu cek dulu untuk ketersediaan jadwalnya [01/07/25 11.17] ADMIN: bisa kami bantu jadwalkan untuk onsitenya besok di hari Rabu, 02 Juli 2025 Jam 10 pagi [01/07/25 11.18] CLIENT: Baik pak [01/07/25 11.20] ADMIN: utk penawaran onsite support kami buatkan a/n Rosaria, UD atau Dayara Laut Sejahtera, PT bu? <Pesan ini diedit> [01/07/25 11.20] CLIENT: Atas nama Dayara pak [01/07/25 11.21] ADMIN: baik bu, mohon ditunggu penawarannya [01/07/25 11.39] ADMIN: <Media tidak disertakan> berikut kami kirimkan penawaran biaya onsite support IT, mohon dilakukan pembayarannya maximal tgl 01 Juli 2025 jam 17.00 [01/07/25 11.46] CLIENT: Baik  Terimakasih [01/07/25 11.47] ADMIN: mohon dibantu infokan juga detail alamat yg akan dikunjungi besok ya bu [01/07/25 11.49] CLIENT: Pakk, ini kalo seumpama tidak pake ppn bisa? [01/07/25 11.49] ADMIN: bisa bu, tanpa ppn dan pph ya bu [01/07/25 11.50] CLIENT: benar pak [01/07/25 11.55] ADMIN: <Media tidak disertakan> berikut kami kirimkan revisi surat penawaran onsite support ya bu [01/07/25 11.59] CLIENT: Baikk [01/07/25 12.54] CLIENT: <Media tidak disertakan> [01/07/25 12.54] CLIENT: transfer atas naama Vivi Ellita [01/07/25 12.54] CLIENT: terimakasih [01/07/25 12.55] CLIENT: Toko Rosaria Maritim Jl Songoyudan no 6 [01/07/25 13.11] ADMIN: baik bu [01/07/25 13.12] ADMIN: besok dengan pak anam ya bu [01/07/25 14.22] CLIENT: baik pak [01/07/25 14.22] CLIENT: Terimakasih [01/07/25 14.24] ADMIN: Anda menghapus pesan ini [01/07/25 14.24] ADMIN: Anda menghapus pesan ini [01/07/25 14.24] ADMIN: baik sama-sama bu"
+  },
+  {
+    "id": "chat_3_conv_078_b",
+    "ringkas": "",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": ""
+  },
+  {
+    "id": "chat_3_conv_079_a",
+    "ringkas": "[08/07/25 08.30] ADMIN: Selamat pagi [08/07/25 08.30] ADMIN: bisa dibantu jalankan ultraviewernya ya bu [08/07...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[08/07/25 08.30] ADMIN: Selamat pagi [08/07/25 08.30] ADMIN: bisa dibantu jalankan ultraviewernya ya bu [08/07/25 08.30] CLIENT: Septy Pass 5812 [08/07/25 08.30] CLIENT: pagi [08/07/25 08.30] CLIENT: ini ya pak [08/07/25 08.31] ADMIN: baik mohon ditunggu [08/07/25 08.34] ADMIN: mohon maaf tidak bisa bu [08/07/25 08.34] ADMIN: seperti ini [08/07/25 08.34] ADMIN: bisa dibantu fotokan ya bu [08/07/25 08.34] CLIENT: Yang ini pak [08/07/25 08.34] CLIENT: Paswordny [08/07/25 08.42] ADMIN: ok silahkan bisa di cek kembali ya bu [08/07/25 08.43] CLIENT: Baik pak [08/07/25 08.46] CLIENT: Oke pak , sudah sesuai [08/07/25 08.46] CLIENT: terimakasih"
+  },
+  {
+    "id": "chat_3_conv_084_d",
+    "ringkas": "",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": ""
+  },
+  {
+    "id": "chat_3_conv_085_a",
+    "ringkas": "[07/08/25 15.37] CLIENT: Sore pakk [07/08/25 15.37] CLIENT: maaf pak [07/08/25 15.37] CLIENT: baru bisa kasih ...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[07/08/25 15.37] CLIENT: Sore pakk [07/08/25 15.37] CLIENT: maaf pak [07/08/25 15.37] CLIENT: baru bisa kasih remote [07/08/25 15.37] CLIENT: saya sudah back up [07/08/25 15.37] CLIENT: <Media tidak disertakan> [07/08/25 15.44] ADMIN: selamt sore [07/08/25 15.44] ADMIN: baik kami coba login [07/08/25 16.08] ADMIN: silahkan coba dicek kembali laporannya [07/08/25 16.20] CLIENT: Baik pak [07/08/25 16.20] CLIENT: Terimakasih"
+  },
+  {
+    "id": "chat_3_conv_088_a",
+    "ringkas": "[10/09/25 10.08] CLIENT: Pagi [10/09/25 10.08] CLIENT: pak saya minta tolong [10/09/25 10.09] CLIENT: <Media t...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[10/09/25 10.08] CLIENT: Pagi [10/09/25 10.08] CLIENT: pak saya minta tolong [10/09/25 10.09] CLIENT: <Media tidak disertakan> ini jumlah dibayar kosong [10/09/25 10.09] CLIENT: <Media tidak disertakan> harusnya kan seperti ini jumlah dibayar ada nilai sesuai kolom sebesar [10/09/25 10.11] ADMIN: Selamat pagi [10/09/25 10.11] ADMIN: bisa dibantu videokan untuk alur inputnya [10/09/25 10.15] CLIENT: <Media tidak disertakan> [10/09/25 10.45] ADMIN: coba setelah buka pada tampilan ini, kursor mousenya di scroll [10/09/25 10.47] CLIENT: <Media tidak disertakan> [10/09/25 10.49] ADMIN: coba aktifkan remotenya [10/09/25 10.49] ADMIN: kami bantu cek [10/09/25 10.50] CLIENT: Baik [10/09/25 10.50] CLIENT: Tunggu pak [10/09/25 10.52] ADMIN: baik bu [10/09/25 11.23] CLIENT: <Media tidak disertakan> Ini ya pak"
+  },
+  {
+    "id": "chat_3_conv_089_b",
+    "ringkas": "",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": ""
+  },
+  {
+    "id": "chat_3_conv_096_a",
+    "ringkas": "[06/11/25 08.24] ADMIN: Selamat pagi [06/11/25 08.25] ADMIN: Silakan bisa dijalankan ultraviewernya kami bantu...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "ADMINISTRASI_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas perpanjangan customer care, invoice, penawaran harga, atau prosedur pembayaran layanan.",
+    "full": "[06/11/25 08.24] ADMIN: Selamat pagi [06/11/25 08.25] ADMIN: Silakan bisa dijalankan ultraviewernya kami bantu cek mengenai kendalanya melalui remote [06/11/25 08.36] CLIENT: Pagi [06/11/25 08.36] CLIENT: baik pak [06/11/25 08.36] CLIENT: 67 816 793 [06/11/25 08.36] CLIENT: 2829 [06/11/25 08.37] CLIENT: 67 816 793 2829 [06/11/25 08.44] ADMIN: baik mohon ditunggu [06/11/25 09.44] ADMIN: bisa coba dicek kembali laporannya [06/11/25 09.45] CLIENT: Sudah bisa pak Oni [06/11/25 09.45] CLIENT: Pak Oni saya harus apa biar tidak seperti itu lagi? [06/11/25 09.46] ADMIN: baik silahkan bisa dilanjutkan, untuk remotenya sudah saya close [06/11/25 09.46] ADMIN: mengenai ini karena ada kendala dipembulatan [06/11/25 09.46] ADMIN: jadi misal ada transaksi pembelian atau penjualan yang menggunakan inclusive tax [06/11/25 09.46] ADMIN: terkadang tidak benar-benar bulat nilainya [06/11/25 09.47] ADMIN: ada selisih koma [06/11/25 09.47] ADMIN: lalu berdampak pada saat pembayaran juga [06/11/25 09.47] ADMIN: itu yang menyebabkan selisih koma [06/11/25 09.47] ADMIN: ketahuannya jika terjadi selisih [06/11/25 09.47] ADMIN: nanti bisa info ke kami untuk dibantu remote perbaikannya [06/11/25 09.48] ADMIN: dengan menunjukkan mutasi buku besar, lalu infokan transaksi mana yang membuat selisih [06/11/25 09.48] ADMIN: seperti case tadi misal harusnya xxx.89 setelah ada debit 2M desimalnya berubah menjadixxx.90 [06/11/25 09.53] CLIENT: Jadi ada comparenya ya pak Oni [06/11/25 09.54] CLIENT: Baiklah pak Oni  Terimakasih ini saya proses tutup buku per bulan dulu"
+  },
+  {
+    "id": "chat_3_conv_102_a",
+    "ringkas": "[29/12/25 16.22] CLIENT: Sore Zahir",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[29/12/25 16.22] CLIENT: Sore Zahir"
+  },
+  {
+    "id": "chat_3_conv_109_b",
+    "ringkas": "",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": ""
+  },
+  {
+    "id": "chat_3_conv_111_a",
+    "ringkas": "[24/06/26 10.06] CLIENT: IMG-20260916-WA0015.jpg (file terlampir) [24/06/26 10.06] CLIENT: pak minta tolong dr...",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[24/06/26 10.06] CLIENT: IMG-20260916-WA0015.jpg (file terlampir) [24/06/26 10.06] CLIENT: pak minta tolong dremote ya pak [24/06/26 10.07] ADMIN: Selamat pagi [24/06/26 10.07] ADMIN: Baik mohon ditunggu ya kak [24/06/26 10.07] CLIENT: 73 371 763 pass: 09909 [24/06/26 10.07] CLIENT: baik [24/06/26 10.32] CLIENT: pak Calvin, bagaimna?  ini ditunggu bosnya [24/06/26 10.35] ADMIN: sudah ya bu [24/06/26 10.35] ADMIN: silahkan bisa di cek kembali [24/06/26 10.36] CLIENT: sudah pak Terimakasih [24/06/26 10.36] ADMIN: baik sama-sama"
+  },
+  {
+    "id": "chat_3_conv_113_a",
+    "ringkas": "[04/08/26 08.01] CLIENT: Pagi Zahir <Pesan ini diedit> [04/08/26 08.02] CLIENT: saya ada problem [04/08/26 08....",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "CUSTOMER_SUPPORT_LAYANAN",
+    "tipe_rec": "LABEL_BARU",
+    "alasan": "Percakapan membahas permintaan bantuan remote support, penjadwalan telepon, kunjungan ke lokasi, atau koordinasi teknisi.",
+    "full": "[04/08/26 08.01] CLIENT: Pagi Zahir <Pesan ini diedit> [04/08/26 08.02] CLIENT: saya ada problem [04/08/26 08.03] CLIENT: di Persediaan --------- Pemakaian/Penyesuaian barang [04/08/26 08.03] CLIENT: IMG-20260916-WA0012.jpg (file terlampir) [04/08/26 08.03] CLIENT: IMG-20260916-WA0011.jpg (file terlampir) [04/08/26 08.39] ADMIN: Selamat pagi bu [04/08/26 08.40] ADMIN: mengenai kendala tersebut bisa saya bantu remote [04/08/26 08.40] ADMIN: disampaikan id dan pass remote ultraviewernya [04/08/26 08.40] CLIENT: 73 371 763 [04/08/26 08.40] CLIENT: 47479"
+  },
+  {
+    "id": "chat_3_conv_117_a",
+    "ringkas": "[09/09/26 09.28] CLIENT: 73 371 763  08901 [09/09/26 09.29] CLIENT: ultra viewernya pak Oni",
+    "label_lama": "LAINNYA_UNCATEGORIZED",
+    "label_rec": "LAINNYA_UNCATEGORIZED",
+    "tipe_rec": "TETAP_LAINNYA",
+    "alasan": "Hanya berisi sapaan awal/akhir, ucapan terima kasih, pesan otomatis system, atau obrolan umum tanpa topik masalah teknis/layanan.",
+    "full": "[09/09/26 09.28] CLIENT: 73 371 763  08901 [09/09/26 09.29] CLIENT: ultra viewernya pak Oni"
+  }
+]
