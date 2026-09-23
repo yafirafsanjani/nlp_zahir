@@ -153,8 +153,16 @@ def generate_narrative_report(data, exec_rows, breakdown_rows):
         f.write("b. Kategori Instalasi & Database Memiliki Rasio Remote Tertinggi:\n")
         f.write("   Kasus koneksi client-server anakan-induk dan database corrupt hampir selalu\n")
         f.write("   membutuhkan remote desktop. Tim teknis remote perlu diprioritaskan untuk kategori ini.\n\n")
-        f.write("c. Efektivitas Model AI Produksi (Tuned Gradient Boosting):\n")
-        f.write("   Model AI telah dilatih dan di-tuning dengan akurasi uji 70.6% (keselarasan master 94.1%).\n")
+        meta_path = BASE_DIR / "models" / "best_model_metadata.json"
+        acc_val, m_name = 0.0, "AI"
+        if meta_path.exists():
+            import json
+            with open(meta_path, "r", encoding="utf-8") as mf:
+                meta = json.load(mf)
+                acc_val = meta.get("test_accuracy", 0.0) * 100
+                m_name = meta.get("model_name", "AI")
+        f.write(f"c. Efektivitas Model AI Produksi ({m_name}):\n")
+        f.write(f"   Model AI telah dilatih dan di-tuning secara leak-free dengan akurasi uji independen {acc_val:.1f}%.\n")
         f.write("   Model ini siap diintegrasikan untuk routing tiket support otomatis ke staf yang tepat.\n\n")
         f.write("=" * 75 + "\n")
         f.write("  Laporan dibuat otomatis oleh nlp_zahir Pipeline Engine\n")

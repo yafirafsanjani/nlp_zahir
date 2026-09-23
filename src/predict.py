@@ -63,18 +63,41 @@ def predict_single_text(raw_text):
             "normalized_text": "",
         }
 
-    X_vec = vectorizer.transform([norm_text])
-    pred_label = model.predict(X_vec)[0]
-
-    probs_dict = {}
-    confidence = 0.0
-    if hasattr(model, "predict_proba"):
-        probs = model.predict_proba(X_vec)[0]
-        confidence = float(np.max(probs) * 100)
-        for cls_name, prob in zip(model.classes_, probs):
-            probs_dict[cls_name] = round(float(prob * 100), 2)
+    if hasattr(model, "named_steps"):
+        pred_label = model.predict([norm_text])[0]
+        probs_dict = {}
+        confidence = 0.0
+        if hasattr(model, "predict_proba"):
+            probs = model.predict_proba([norm_text])[0]
+            confidence = float(np.max(probs) * 100)
+            classes = getattr(model, "classes_", model.named_steps["clf"].classes_)
+            for cls_name, prob in zip(classes, probs):
+                probs_dict[cls_name] = round(float(prob * 100), 2)
+        elif hasattr(model.named_steps["clf"], "decision_function"):
+            decision = model.decision_function([norm_text])[0]
+            if len(decision.shape) > 0:
+                exp_d = np.exp(decision - np.max(decision))
+                probs = exp_d / np.sum(exp_d)
+                confidence = float(np.max(probs) * 100)
+                classes = model.named_steps["clf"].classes_
+                for cls_name, prob in zip(classes, probs):
+                    probs_dict[cls_name] = round(float(prob * 100), 2)
+            else:
+                confidence = 100.0
+        else:
+            confidence = 100.0
     else:
-        confidence = 100.0
+        X_vec = vectorizer.transform([norm_text])
+        pred_label = model.predict(X_vec)[0]
+        probs_dict = {}
+        confidence = 0.0
+        if hasattr(model, "predict_proba"):
+            probs = model.predict_proba(X_vec)[0]
+            confidence = float(np.max(probs) * 100)
+            for cls_name, prob in zip(model.classes_, probs):
+                probs_dict[cls_name] = round(float(prob * 100), 2)
+        else:
+            confidence = 100.0
 
     return {
         "predicted_category": pred_label,

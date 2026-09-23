@@ -65,7 +65,7 @@ python main.py predict data/raw/chat/chat_1.txt
 - data/output/executive_summary.csv: Ringkasan metrik KPI layanan CS Zahir (Respons rate 90.5%, Remote rate 31.4%, AI match 94.1%).
 - data/output/category_breakdown_report.csv: Tabel analitik korelasi silang kategori kendala terhadap remote dan respons.
 - data/output/final_project_report.txt: Laporan naratif analitik dan 3 rekomendasi bisnis strategis untuk tim manajemen Zahir.
-- models/best_model.pkl: Model AI terbaik siap produksi (*Tuned Gradient Boosting*, akurasi uji 70.6%).
+- models/best_model.pkl: Model AI terbaik siap produksi (*Tuned LinearSVC*, akurasi uji independen leak-free 71.8%, F1-Weighted 69.9%).
 - config/taxonomy.json: **Single Source of Truth** taksonomi kategori kendala (definisi + keyword + frasa). Dipakai bersama oleh regex pipeline dan LLM labeling — nambah/mengubah kategori cukup edit file ini tanpa menyentuh kode.
 
 ---
