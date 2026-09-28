@@ -135,36 +135,47 @@ def validate(data_before, data_after, unknown_senders):
     print()
 
 
-def run():
-    """Jalankan Fase 4: assign role ke setiap pesan."""
-    if not INPUT_FILE.exists():
-        print(f"[ERROR] File tidak ditemukan: {INPUT_FILE}")
-        print("Jalankan parser terlebih dahulu: python main.py")
-        return
+def identify_roles(input_file=INPUT_FILE, output_file=OUTPUT_FILE, role_map=ROLE_MAP):
+    """Fase 4: Identifikasi role Admin, Client, System."""
+    in_path = Path(input_file)
+    out_path = Path(output_file) if output_file else None
+
+    if not in_path.exists():
+        print(f"[ERROR] File tidak ditemukan: {in_path}")
+        return [], set()
 
     print("=" * 60)
     print("  FASE 4 - IDENTIFIKASI CLIENT & ADMIN")
-    print(f"  Input : {INPUT_FILE}")
-    print(f"  Output: {OUTPUT_FILE}")
+    print(f"  Input : {in_path}")
+    if out_path:
+        print(f"  Output: {out_path}")
     print("=" * 60)
 
-    data_before = load_csv(INPUT_FILE)
-    print(f"\nMemuat {len(data_before)} pesan dari {INPUT_FILE.name}")
+    data_before = load_csv(in_path)
+    print(f"\nMemuat {len(data_before)} pesan dari {in_path.name}")
 
     print("\nMapping role yang digunakan:")
-    for pengirim, role in sorted(ROLE_MAP.items()):
+    for pengirim, role in sorted(role_map.items()):
         print(f"  {pengirim} -> {role}")
 
     data_after, unknown_senders = assign_roles(data_before)
 
-    output = save_to_csv(data_after, OUTPUT_FILE)
-    print(f"\nHasil disimpan ke: {output}")
+    if out_path:
+        output = save_to_csv(data_after, out_path)
+        print(f"\nHasil disimpan ke: {output}")
 
     validate(data_before, data_after, unknown_senders)
 
     print("=" * 60)
     print("  FASE 4 SELESAI")
     print("=" * 60)
+
+    return data_after, unknown_senders
+
+
+def run():
+    """Jalankan Fase 4: assign role ke setiap pesan."""
+    identify_roles(INPUT_FILE, OUTPUT_FILE, ROLE_MAP)
 
 
 if __name__ == "__main__":

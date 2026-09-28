@@ -149,31 +149,43 @@ def validate(data, sub_conv_summary):
 
     print()
 
-def run():
-    if not INPUT_FILE.exists():
-        print(f"[ERROR] File input tidak ditemukan: {INPUT_FILE}")
-        print("Jalankan fase 7 terlebih dahulu: python main.py remote")
-        return
+def label_sub_conversations(input_file=INPUT_FILE, output_file=OUTPUT_FILE):
+    """Fase 9: Data labeling & Sub-conversation topic splitting."""
+    in_path = Path(input_file)
+    out_path = Path(output_file) if output_file else None
+
+    if not in_path.exists():
+        print(f"[ERROR] File input tidak ditemukan: {in_path}")
+        return [], {}
 
     print("=" * 60)
     print("  FASE 9 — DATA LABELING (OPSI A: SUB-CONVERSATION SPLITTING)")
-    print(f"  Input : {INPUT_FILE}")
-    print(f"  Output: {OUTPUT_FILE}")
+    print(f"  Input : {in_path}")
+    if out_path:
+        print(f"  Output: {out_path}")
     print("=" * 60)
 
-    data = load_csv(INPUT_FILE)
-    print(f"\nMemuat {len(data)} pesan dari {INPUT_FILE.name}")
+    data = load_csv(in_path)
+    print(f"\nMemuat {len(data)} pesan dari {in_path.name}")
 
     processed_data, sub_summary = process_labeling(data)
 
-    output = save_to_csv(processed_data, OUTPUT_FILE)
-    print(f"Hasil disimpan ke: {output}")
+    if out_path:
+        output = save_to_csv(processed_data, out_path)
+        print(f"Hasil disimpan ke: {output}")
 
     validate(processed_data, sub_summary)
 
     print("=" * 60)
     print("  FASE 9 SELESAI")
     print("=" * 60)
+
+    return processed_data, sub_summary
+
+
+def run():
+    label_sub_conversations(INPUT_FILE, OUTPUT_FILE)
+
 
 if __name__ == "__main__":
     run()

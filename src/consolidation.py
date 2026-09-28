@@ -171,20 +171,41 @@ def validate(records):
         print(f"  - Full     : {len(r['full_conversation'])} karakter (kolom full_conversation)")
     print()
 
-def run():
+def consolidate_master_data(cat_file=CATEGORIES_CSV, norm_file=NORMALIZED_CSV, output_file=MASTER_FINAL_CSV):
+    """Fase 18: Penggabungan Hasil Master Final."""
+    cat_path = Path(cat_file)
+    norm_path = Path(norm_file)
+    out_path = Path(output_file) if output_file else None
+
     print("=" * 60)
     print("  FASE 18 — PENGGABUNGAN HASIL MASTER DATASET")
-    print(f"  Output : {MASTER_FINAL_CSV}")
+    if out_path:
+        print(f"  Output : {out_path}")
     print("=" * 60)
 
-    cat_rows, norm_rows = load_data()
+    with open(cat_path, "r", encoding="utf-8") as f:
+        cat_rows = list(csv.DictReader(f))
+
+    with open(norm_path, "r", encoding="utf-8") as f:
+        norm_rows = list(csv.DictReader(f))
+
     master_records = consolidate_master_dataset(cat_rows, norm_rows)
-    save_master_csv(master_records, MASTER_FINAL_CSV)
+
+    if out_path:
+        save_master_csv(master_records, out_path)
+
     validate(master_records)
 
     print("=" * 60)
     print("  FASE 18 SELESAI")
     print("=" * 60)
+
+    return master_records
+
+
+def run():
+    consolidate_master_data(CATEGORIES_CSV, NORMALIZED_CSV, MASTER_FINAL_CSV)
+
 
 if __name__ == "__main__":
     run()

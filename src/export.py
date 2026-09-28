@@ -185,19 +185,22 @@ def validate():
     print("-" * 65)
     print()
 
-def run():
-    if not INPUT_MASTER_FILE.exists():
-        print(f"[ERROR] Berkas master tidak ditemukan: {INPUT_MASTER_FILE}")
-        print("Jalankan fase 18 terlebih dahulu: python main.py consolidate")
-        return
+def export_all_reports(input_master_file=INPUT_MASTER_FILE, output_dir=OUTPUT_DIR):
+    """Fase 19: Export Hasil & Laporan Analitik Eksekutif."""
+    master_path = Path(input_master_file)
+    out_dir = Path(output_dir)
+
+    if not master_path.exists():
+        print(f"[ERROR] Berkas master tidak ditemukan: {master_path}")
+        return {}
 
     print("=" * 60)
     print("  FASE 19 — EXPORT HASIL & LAPORAN ANALITIK EKSEKUTIF")
-    print(f"  Input  : {INPUT_MASTER_FILE}")
-    print(f"  Output : {OUTPUT_DIR}")
+    print(f"  Input  : {master_path}")
+    print(f"  Output : {out_dir}")
     print("=" * 60)
 
-    data = load_master_data(INPUT_MASTER_FILE)
+    data = load_master_data(master_path)
     exec_rows = generate_executive_summary(data)
     breakdown_rows = generate_category_breakdown(data)
     generate_narrative_report(data, exec_rows, breakdown_rows)
@@ -207,6 +210,17 @@ def run():
     print("=" * 60)
     print("  FASE 19 SELESAI")
     print("=" * 60)
+
+    return {
+        "executive_summary": EXEC_SUMMARY_FILE,
+        "category_breakdown": BREAKDOWN_FILE,
+        "narrative_report": REPORT_TXT_FILE,
+    }
+
+
+def run():
+    export_all_reports(INPUT_MASTER_FILE, OUTPUT_DIR)
+
 
 if __name__ == "__main__":
     run()

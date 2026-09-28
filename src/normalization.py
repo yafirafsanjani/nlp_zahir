@@ -242,30 +242,43 @@ def validate(data, total_normalized):
             print(f"  KATA DINORMALISASI: {row['normalized_words_count']} kata")
     print()
 
-def run():
-    if not INPUT_FILE.exists():
-        print(f"[ERROR] File input tidak ditemukan: {INPUT_FILE}")
-        print("Jalankan fase 10 terlebih dahulu: python main.py preprocess")
-        return
+def normalize_text_data(input_file=INPUT_FILE, output_file=OUTPUT_FILE):
+    """Fase 11: Cascaded Normalization."""
+    in_path = Path(input_file)
+    out_path = Path(output_file) if output_file else None
+
+    if not in_path.exists():
+        print(f"[ERROR] File input tidak ditemukan: {in_path}")
+        return [], 0
 
     print("=" * 60)
     print("  FASE 11 — CASCADED NORMALIZATION (INDO-NORMALIZER + ZAHIR)")
-    print(f"  Input : {INPUT_FILE}")
-    print(f"  Output: {OUTPUT_FILE}")
+    print(f"  Input : {in_path}")
+    if out_path:
+        print(f"  Output: {out_path}")
     print("=" * 60)
 
-    data = load_csv(INPUT_FILE)
-    print(f"\nMemuat {len(data)} baris dokumen dari {INPUT_FILE.name}")
+    data = load_csv(in_path)
+    print(f"\nMemuat {len(data)} baris dokumen dari {in_path.name}")
 
     processed_data, total_normalized = process_normalization(data)
-    output = save_to_csv(processed_data, OUTPUT_FILE)
-    print(f"Hasil disimpan ke: {output}")
+
+    if out_path:
+        output = save_to_csv(processed_data, out_path)
+        print(f"Hasil disimpan ke: {output}")
 
     validate(processed_data, total_normalized)
 
     print("=" * 60)
     print("  FASE 11 SELESAI")
     print("=" * 60)
+
+    return processed_data, total_normalized
+
+
+def run():
+    normalize_text_data(INPUT_FILE, OUTPUT_FILE)
+
 
 if __name__ == "__main__":
     run()

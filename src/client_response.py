@@ -164,31 +164,43 @@ def validate(data, conv_labels):
         print(f"  -> \"{last_m['percakapan'][:90]}\"")
     print()
 
-def run():
-    if not INPUT_FILE.exists():
-        print(f"[ERROR] File tidak ditemukan: {INPUT_FILE}")
-        print("Jalankan fase 5 terlebih dahulu: python main.py conversations 4")
-        return
+def analyze_client_responses(input_file=INPUT_FILE, output_file=OUTPUT_FILE):
+    """Fase 6: Analisis respons klien (RESPONS / TIDAK_RESPONS)."""
+    in_path = Path(input_file)
+    out_path = Path(output_file) if output_file else None
+
+    if not in_path.exists():
+        print(f"[ERROR] File tidak ditemukan: {in_path}")
+        return [], {}
 
     print("=" * 60)
     print("  FASE 6 - ANALISIS RESPONS KLIEN (PERBAIKAN LOGIKA)")
-    print(f"  Input : {INPUT_FILE}")
-    print(f"  Output: {OUTPUT_FILE}")
+    print(f"  Input : {in_path}")
+    if out_path:
+        print(f"  Output: {out_path}")
     print("=" * 60)
 
-    data = load_csv(INPUT_FILE)
-    print(f"\nMemuat {len(data)} pesan dari {INPUT_FILE.name}")
+    data = load_csv(in_path)
+    print(f"\nMemuat {len(data)} pesan dari {in_path.name}")
 
     data, conv_labels = assign_client_responses(data)
 
-    output = save_to_csv(data, OUTPUT_FILE)
-    print(f"Hasil disimpan ke: {output}")
+    if out_path:
+        output = save_to_csv(data, out_path)
+        print(f"Hasil disimpan ke: {output}")
 
     validate(data, conv_labels)
 
     print("=" * 60)
     print("  FASE 6 SELESAI")
     print("=" * 60)
+
+    return data, conv_labels
+
+
+def run():
+    analyze_client_responses(INPUT_FILE, OUTPUT_FILE)
+
 
 if __name__ == "__main__":
     run()

@@ -1,73 +1,81 @@
-﻿"""
+"""
 pipeline.py - Full Automation Pipeline (Fase 20)
 
-Mengotomatisasi seluruh alur kerja proyek NLP Zahir secara sekuensial end-to-end:
-1. Ingestion & WhatsApp Parsing (Fase 1 & 2)
-2. Role Identification ADMIN, CLIENT, SYSTEM (Fase 4)
-3. Pembentukan Unit Percakapan Jeda 4 Jam (Fase 5)
-4. Analisis Respons Klien (Fase 6)
-5. Analisis Penanganan Remote & Kredensial (Fase 7)
-6. Sub-Conversation Topic Splitting & Ground Truth Labeling (Fase 9)
-7. Text Preprocessing & Aggregation (Fase 10)
-8. Cascaded Normalization (indo-normalizer + Kamus Zahir) (Fase 11)
-9. Ekstraksi Fitur TF-IDF Unigram & Bigram (Fase 12)
-10. Stratified Train-Test Split 80/20 (Fase 13)
-11. Training Model 7 Algoritma & Cross-Validation (Fase 14)
-12. Hyperparameter Tuning & Voting Ensemble Optimization (Fase 15)
-13. Evaluasi Independen pada Data Uji (Fase 15)
-14. Model Selection & Saving Model Produksi (Fase 16)
-15. Konsolidasi Master Dataset Final (Fase 18)
-16. Export Laporan Analitik Eksekutif & KPI (Fase 19)
+Mengotomatisasi seluruh alur kerja proyek NLP Zahir secara sekuensial end-to-end.
+Dapat dipanggil dari CLI maupun sebagai Python function (process_conversations).
 """
 
 import time
 from pathlib import Path
 
+from src.parser import parse_whatsapp_chats
+from src.roles import identify_roles
+from src.conversation import group_conversations
+from src.client_response import analyze_client_responses
+from src.remote import classify_remote
+from src.category_labeling import label_sub_conversations
+from src.preprocessing import preprocess_text_data
+from src.normalization import normalize_text_data
+from src.features import run as run_features
+from src.split import run as run_split
+from src.train import run as run_train
+from src.tuning import run as run_tuning
+from src.evaluation import run as run_evaluation
+from src.selection import run as run_selection
+from src.consolidation import consolidate_master_data
+from src.export import export_all_reports
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-def run_full_pipeline(threshold_hours=4.0, full_tuning=True):
+def process_conversations(raw_dir=None, media_dir=None, threshold_hours=4.0, full_tuning=True):
+    """API Function Python utama untuk memproses percakapan WhatsApp dari data mentah hingga laporan akhir."""
+    return run_full_pipeline(raw_dir=raw_dir, media_dir=media_dir, threshold_hours=threshold_hours, full_tuning=full_tuning)
+
+def run_full_pipeline(raw_dir=None, media_dir=None, threshold_hours=4.0, full_tuning=True):
     start_total = time.time()
 
     print("\n" + "=" * 75)
     print("      MEMULAI OTOMASI PIPELINE LENGKAP PROYEK NLP ZAHIR (FASE 1 - 20)")
     print("=" * 75 + "\n")
 
+    parse_kwargs = {}
+    if raw_dir:
+        parse_kwargs["raw_dir"] = raw_dir
+    if media_dir:
+        parse_kwargs["media_dir"] = media_dir
+
     steps = [
-        ("Fase 1 & 2: WhatsApp Parsing & Media Mapping", "src.parser"),
-        ("Fase 4    : Role Identification (ADMIN / CLIENT / SYSTEM)", "src.roles"),
-        ("Fase 5    : Unit Percakapan (Threshold Jeda 4 Jam)", "src.conversation"),
-        ("Fase 6    : Analisis Respons Klien (RESPONS / TIDAK_RESPONS)", "src.client_response"),
-        ("Fase 7    : Analisis Penanganan Remote & Kredensial", "src.remote"),
-        ("Fase 9    : Sub-Conversation Splitting & Data Labeling", "src.category_labeling"),
-        ("Fase 10   : Text Preprocessing & Document Aggregation", "src.preprocessing"),
-        ("Fase 11   : Cascaded Normalization (indo-normalizer + Zahir)", "src.normalization"),
-        ("Fase 12   : Feature Extraction TF-IDF (Unigram & Bigram)", "src.features"),
-        ("Fase 13   : Stratified Train-Test Split (80% / 20%)", "src.split"),
-        ("Fase 14   : Training Model Classification (7 Algoritma)", "src.train"),
+        ("Fase 1 & 2: WhatsApp Parsing & Media Mapping", lambda: parse_whatsapp_chats(**parse_kwargs)),
+        ("Fase 4    : Role Identification (ADMIN / CLIENT / SYSTEM)", lambda: identify_roles()),
+        ("Fase 5    : Unit Percakapan (Threshold Jeda 4 Jam)", lambda: group_conversations(threshold_hours=threshold_hours)),
+        ("Fase 6    : Analisis Respons Klien (RESPONS / TIDAK_RESPONS)", lambda: analyze_client_responses()),
+        ("Fase 7    : Analisis Penanganan Remote & Kredensial", lambda: classify_remote()),
+        ("Fase 9    : Sub-Conversation Splitting & Data Labeling", lambda: label_sub_conversations()),
+        ("Fase 10   : Text Preprocessing & Document Aggregation", lambda: preprocess_text_data()),
+        ("Fase 11   : Cascaded Normalization (indo-normalizer + Zahir)", lambda: normalize_text_data()),
+        ("Fase 12   : Feature Extraction TF-IDF (Unigram & Bigram)", lambda: run_features()),
+        ("Fase 13   : Stratified Train-Test Split (80% / 20%)", lambda: run_split()),
+        ("Fase 14   : Training Model Classification (7 Algoritma)", lambda: run_train()),
     ]
 
     if full_tuning:
-        steps.append(("Fase 15.1 : Hyperparameter Tuning & Voting Ensemble", "src.tuning"))
+        steps.append(("Fase 15.1 : Hyperparameter Tuning & Voting Ensemble", lambda: run_tuning()))
 
     steps.extend([
-        ("Fase 15.2 : Evaluasi Model pada Data Uji Independen", "src.evaluation"),
-        ("Fase 16   : Model Selection & Saving Production Model", "src.selection"),
-        ("Fase 18   : Konsolidasi Master Dataset Final", "src.consolidation"),
-        ("Fase 19   : Export Laporan Analitik Eksekutif & KPI", "src.export"),
+        ("Fase 15.2 : Evaluasi Model pada Data Uji Independen", lambda: run_evaluation()),
+        ("Fase 16   : Model Selection & Saving Production Model", lambda: run_selection()),
+        ("Fase 18   : Konsolidasi Master Dataset Final", lambda: consolidate_master_data()),
+        ("Fase 19   : Export Laporan Analitik Eksekutif & KPI", lambda: export_all_reports()),
     ])
 
     total_steps = len(steps)
 
-    for idx, (desc, module_name) in enumerate(steps, 1):
+    for idx, (desc, func) in enumerate(steps, 1):
         step_start = time.time()
         print(f"\n[{idx}/{total_steps}] MENJALANKAN: {desc}...")
         print("-" * 75)
 
-        mod = __import__(module_name, fromlist=["run"])
-        if module_name == "src.conversation":
-            mod.run(threshold_hours=threshold_hours)
-        else:
-            mod.run()
+        func()
 
         step_elapsed = time.time() - step_start
         print(f"-> Selesai dalam {step_elapsed:.2f} detik.")

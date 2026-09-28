@@ -58,14 +58,14 @@ def read_file(filepath):
         return f.readlines()
 
 
-def get_media_files(source_file):
+def get_media_files(source_file, media_dir=MEDIA_DIR):
     """Dapatkan set nama file media yang tersedia untuk source_file tertentu.
 
     Mapping: chat_1.txt -> data/raw/media/chat_1/
              chat_2.txt -> data/raw/media/chat_2/
     """
     chat_name = Path(source_file).stem
-    media_folder = MEDIA_DIR / chat_name
+    media_folder = Path(media_dir) / chat_name
     if not media_folder.exists():
         return {}
     return {f.name: str(f.relative_to(BASE_DIR)) for f in media_folder.iterdir() if f.is_file()}
@@ -102,7 +102,7 @@ def detect_media(percakapan, media_files):
     return "", "", False, percakapan
 
 
-def parse_lines(lines, source_file):
+def parse_lines(lines, source_file, media_dir=MEDIA_DIR):
     """Parse baris-baris chat WhatsApp menjadi list of dict.
 
     Menangani:
@@ -111,7 +111,7 @@ def parse_lines(lines, source_file):
     - Multiline message (baris tanpa tanggal digabung ke pesan sebelumnya)
     - Deteksi media (media omitted dan file terlampir)
     """
-    media_files = get_media_files(source_file)
+    media_files = get_media_files(source_file, media_dir=media_dir)
     messages = []
     current = None
 
@@ -276,20 +276,23 @@ def validate(messages, file_counts):
     }
 
 
-def run():
-    """Jalankan parser: baca semua .txt dari data/raw/chat, parse, simpan CSV."""
-    txt_files = get_txt_files(RAW_DIR)
+def parse_whatsapp_chats(raw_dir=RAW_DIR, media_dir=MEDIA_DIR, output_file=OUTPUT_FILE):
+    """Membaca semua file chat .txt, melakukan parsing, dan menyimpan ke CSV."""
+    raw_path = Path(raw_dir)
+    media_path = Path(media_dir)
+    out_path = Path(output_file) if output_file else None
 
+    txt_files = get_txt_files(raw_path)
     if not txt_files:
-        print(f"[ERROR] Tidak ada file .txt di {RAW_DIR}")
-        return
+        print(f"[ERROR] Tidak ada file .txt di {raw_path}")
+        return []
 
     print("=== DATA INGESTION - PARSER ===")
-    print(f"Direktori raw   : {RAW_DIR}")
-    print(f"Direktori media : {MEDIA_DIR}")
-    print(f"Output CSV      : {OUTPUT_FILE}")
-    print(f"Jumlah file .txt ditemukan: {len(txt_files)}")
-    print()
+    print(f"Direktori raw   : {raw_path}")
+    print(f"Direktori media : {media_path}")
+    if out_path:
+        print(f"Output CSV      : {out_path}")
+    print(f"Jumlah file .txt ditemukan: {len(txt_files)}\n")
 
     all_messages = []
     file_counts = {}
@@ -297,25 +300,31 @@ def run():
     for fpath in txt_files:
         fname = fpath.name
         chat_name = fpath.stem
-        media_folder = MEDIA_DIR / chat_name
+        media_folder = media_path / chat_name
         media_count = len(list(media_folder.glob("*"))) if media_folder.exists() else 0
         print(f"Memproses: {fname} ({fpath.stat().st_size:,} bytes)")
         print(f"  Media folder: {media_folder.name}/ ({media_count} file)")
         lines = read_file(fpath)
-        messages = parse_lines(lines, fname)
+        messages = parse_lines(lines, fname, media_dir=media_path)
         file_counts[fname] = len(messages)
         all_messages.extend(messages)
-        print(f"  -> {len(messages)} pesan diekstrak")
-        print()
+        print(f"  -> {len(messages)} pesan diekstrak\n")
 
     all_messages = assign_ids(all_messages)
 
-    output = save_to_csv(all_messages, OUTPUT_FILE)
-    print(f"Hasil parsing disimpan ke: {output}")
+    if out_path:
+        save_to_csv(all_messages, out_path)
+        print(f"Hasil parsing disimpan ke: {out_path}")
 
     validate(all_messages, file_counts)
 
     print("=== PARSER SELESAI ===")
+    return all_messages
+
+
+def run():
+    """Jalankan parser: baca semua .txt dari data/raw/chat, parse, simpan CSV."""
+    parse_whatsapp_chats(RAW_DIR, MEDIA_DIR, OUTPUT_FILE)
 
 
 if __name__ == "__main__":

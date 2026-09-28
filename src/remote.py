@@ -151,31 +151,43 @@ def validate(data, conv_remote_labels, conv_cred_labels):
         print(f"  -> \"{sample['percakapan'][:90]}\"")
     print()
 
-def run():
-    if not INPUT_FILE.exists():
-        print(f"[ERROR] File tidak ditemukan: {INPUT_FILE}")
-        print("Jalankan fase 6 terlebih dahulu: python main.py responses")
-        return
+def classify_remote(input_file=INPUT_FILE, output_file=OUTPUT_FILE):
+    """Fase 7: Analisis penanganan remote (REMOTE / NON_REMOTE) & kredensial."""
+    in_path = Path(input_file)
+    out_path = Path(output_file) if output_file else None
+
+    if not in_path.exists():
+        print(f"[ERROR] File tidak ditemukan: {in_path}")
+        return [], {}, {}
 
     print("=" * 60)
     print("  FASE 7 - ANALISIS PENANGANAN REMOTE")
-    print(f"  Input : {INPUT_FILE}")
-    print(f"  Output: {OUTPUT_FILE}")
+    print(f"  Input : {in_path}")
+    if out_path:
+        print(f"  Output: {out_path}")
     print("=" * 60)
 
-    data = load_csv(INPUT_FILE)
-    print(f"\nMemuat {len(data)} pesan dari {INPUT_FILE.name}")
+    data = load_csv(in_path)
+    print(f"\nMemuat {len(data)} pesan dari {in_path.name}")
 
     data, conv_remote_labels, conv_cred_labels = assign_remote_labels(data)
 
-    output = save_to_csv(data, OUTPUT_FILE)
-    print(f"Hasil disimpan ke: {output}")
+    if out_path:
+        output = save_to_csv(data, out_path)
+        print(f"Hasil disimpan ke: {output}")
 
     validate(data, conv_remote_labels, conv_cred_labels)
 
     print("=" * 60)
     print("  FASE 7 SELESAI")
     print("=" * 60)
+
+    return data, conv_remote_labels, conv_cred_labels
+
+
+def run():
+    classify_remote(INPUT_FILE, OUTPUT_FILE)
+
 
 if __name__ == "__main__":
     run()

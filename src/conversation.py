@@ -349,38 +349,47 @@ def run_analyze():
     print("=" * 60)
 
 
+def group_conversations(input_file=INPUT_FILE, output_file=OUTPUT_FILE, threshold_hours=4.0):
+    """Fase 5: Pembentukan unit percakapan berdasarkan threshold jeda jam."""
+    in_path = Path(input_file)
+    out_path = Path(output_file) if output_file else None
+
+    if not in_path.exists():
+        print(f"[ERROR] File tidak ditemukan: {in_path}")
+        return []
+
+    print("=" * 60)
+    print("  FASE 5 - PEMBENTUKAN UNIT PERCAKAPAN")
+    print(f"  Input    : {in_path}")
+    if out_path:
+        print(f"  Output   : {out_path}")
+    print(f"  Threshold: {threshold_hours} jam")
+    print("=" * 60)
+
+    data = load_csv(in_path)
+    print(f"\nMemuat {len(data)} pesan")
+
+    data = assign_conversations(data, threshold_hours)
+
+    if out_path:
+        output = save_to_csv(data, out_path)
+        print(f"Hasil disimpan ke: {output}")
+
+    validate(data)
+
+    print("\n" + "=" * 60)
+    print("  FASE 5 SELESAI")
+    print("=" * 60)
+
+    return data
+
+
 def run(threshold_hours=None):
     """Jalankan pembentukan percakapan dengan threshold tertentu."""
     if threshold_hours is None:
         run_analyze()
         return
-
-    if not INPUT_FILE.exists():
-        print(f"[ERROR] File tidak ditemukan: {INPUT_FILE}")
-        print("Jalankan fase 4 terlebih dahulu: python main.py roles")
-        return
-
-    print("=" * 60)
-    print("  FASE 5 - PEMBENTUKAN UNIT PERCAKAPAN")
-    print(f"  Input    : {INPUT_FILE}")
-    print(f"  Output   : {OUTPUT_FILE}")
-    print(f"  Threshold: {threshold_hours} jam")
-    print("=" * 60)
-
-    data = load_csv(INPUT_FILE)
-    print(f"\nMemuat {len(data)} pesan")
-
-    data = assign_conversations(data, threshold_hours)
-
-    output = save_to_csv(data, OUTPUT_FILE)
-    print(f"Hasil disimpan ke: {output}")
-
-    validate(data)
-
-    print()
-    print("=" * 60)
-    print("  FASE 5 SELESAI")
-    print("=" * 60)
+    group_conversations(INPUT_FILE, OUTPUT_FILE, threshold_hours)
 
 
 if __name__ == "__main__":
