@@ -1,3 +1,4 @@
 import os, sys, base64
 from pathlib import Path
-print(" builder.py ready\)
+
+print("hello from build_pkg")
