@@ -1,4 +1,4 @@
-﻿# NLP Zahir — Customer Support Analytics & Automated Classification Pipeline
+# NLP Zahir — Customer Support Analytics & Automated Classification Pipeline
 
 Proyek pengolahan bahasa alami (Natural Language Processing / NLP) dan Machine Learning end-to-end untuk menganalisis percakapan ekspor WhatsApp dan media layanan customer support software akuntansi **Zahir**.
 
@@ -139,3 +139,141 @@ python src/llm_labeling.py --provider gemini
 ```
 
 **Prinsip desain**: LLM hanya dipakai pada fase pembentukan ground truth — **tidak pernah** di jalur prediksi harian. Saat model dirasa cukup, langkah LLM bisa dilompati (`--skip-llm`) dan langsung training dari label yang sudah ada.
+---
+
+## 📦 WhatsApp ZIP Ingestion Modul (Tahap 2)
+
+Modul ingestion backend (`src/ingestion/`) berfungsi untuk menerima, memvalidasi, mengekstrak, dan mengorganisasi file ekspor ZIP WhatsApp secara otomatis sebelum diproses oleh pipeline NLP.
+
+### 1. Format ZIP yang Didukung
+- File arsip format `.zip` berisi 1 atau beberapa file percakapan WhatsApp (`.txt`).
+- Dapat menyertakan berbagai jenis media terlampir:
+  - **Gambar**: `.jpg`, `.jpeg`, `.png`, `.webp`, `.gif`
+  - **Video**: `.mp4`, `.mov`, `.avi`
+  - **Audio**: `.m4a`, `.mp3`, `.aac`, `.ogg`
+  - **Dokumen**: `.pdf`, `.doc`, `.docx`, `.xls`, `.xlsx`, `.csv`
+
+### 2. Cara Menjalankan Ingestion (Python API)
+```python
+from src.ingestion import ingest_whatsapp_zip
+
+# Ingestion file ZIP ke direktori data/raw (default)
+result = ingest_whatsapp_zip("WhatsApp_Export.zip")
+
+print("Status       :", result["status"])
+print("Total Chat   :", result["total_chats"])
+print("Total Media  :", result["total_media"])
+print("Mapping File :", result["mapping_file"])
+```
+
+### 3. Output Directory & Struktur File
+Hasil pengolahan akan diorganisasi secara otomatis ke struktur standar:
+```
+data/
+└── raw/
+    ├── chat/
+    │   ├── chat_1.txt
+    │   ├── chat_2.txt
+    │   ├── chat_mapping.json
+    │   └── ingestion_session.json
+    └── media/
+        ├── chat_1/
+        │   ├── IMG-001.jpg
+        │   └── ...
+        ├── chat_2/
+        │   └── ...
+        └── unresolved/
+            └── orphan_media.png
+```
+
+### 4. Mapping Customer & Metadata (`chat_mapping.json`)
+Identitas asli file dan nama customer disimpan aman tanpa mengubah file fisik:
+```json
+{
+    "chat_1.txt": {
+        "source_filename": "WhatsApp Chat dengan PT ABC.txt",
+        "customer_name": "PT ABC"
+    },
+    "chat_2.txt": {
+        "source_filename": "WhatsApp Chat dengan CV Eterna.txt",
+        "customer_name": "CV Eterna"
+    }
+}
+```
+*Catatan*: Jika nama customer tidak dapat ditentukan secara pasti dari nama file, `customer_name` bernilai `null` tanpa mengarang identitas.
+
+### 5. Media Organization & Unresolved Handling
+- File media akan dipetakan ke folder `data/raw/media/chat_N/` sesuai referensi nama file di pesan chat atau struktur folder ekspor.
+- Media yang tidak dapat dipetakan secara pasti dimasukkan ke folder `data/raw/media/unresolved/` dan dicatat pada list `unresolved_files`.
+
+### 6. Keamanan & Penanganan Error (`ZipValidationError`)
+Pemeriksaan integritas dan keamanan dilakukan secara otomatis:
+- Menolak file non-ZIP, corrupt, atau kosong.
+- **Proteksi Path Traversal**: Menolak isi ZIP yang mengandung path berbahaya seperti `../../file.txt` atau absolute path.
+- Menolak file melebihi batas ukuran (default limit: 100 MB compressed / 500 MB uncompressed).
+
+### 7. Isolasi Sesi (`session_id`) & Kompatibilitas Pipeline Existing
+- Mendukung pemrosesan terisolasi via parameter `target_dir` (misal `data/runs/<session_id>`).
+- Output ingestion kompatibel 100% dengan `python main.py run-all` dan fungsi `parse_whatsapp_chats()`.
+
+---
+
+## 🌋 Cara Menjalankan FastAPI REST Backend (API Server)
+Untuk menjalankan server REST API secara lokal:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Server API akan berjalan pada http://127.0.0.1:8000.
+- **Dokumentasi Interactive Swagger UIa*: http://127.0.0.1:8000/docs
+- **OpenAPI JSON**: http://127.0.0.1:8000/openapi.json
+
+---
+
+## Analytics API (Task 3B)
+
+Analytics is read-only. Without `session_id`, every endpoint reads the existing default dataset at `data/output/master_conversations_final.csv`, so a dashboard can display data immediately. With `session_id`, it reads only that completed upload-analysis session. Swagger is available at `http://127.0.0.1:8000/docs`.
+
+| Endpoint | Required query | Optional query | Description |
+| --- | --- | --- | --- |
+| `GET /api/overview` | none | `session_id`, `start_date`, `end_date` | KPIs, leading category, distribution, and period |
+| `GET /api/issues` | none | `session_id`, `start_date`, `end_date` | Category-level issue and remote statistics |
+| `GET /api/remote` | none | `session_id`, `start_date`, `end_date` | Remote totals by category and customer |
+| `GET /api/customers` | none | `session_id`, `start_date`, `end_date` | Customer-level issue and remote statistics |
+| `GET /api/time-series` | none | `session_id`, `period`, `start_date`, `end_date` | Daily, weekly, monthly, or yearly issue totals |
+
+Example:
+
+```text
+GET /api/overview?session_id=session_20260930_ab12cd
+GET /api/time-series?session_id=session_20260930_ab12cd&period=monthly
+GET /api/overview
+```
+
+`remote_rate` is `remote_cases / (remote_cases + non_remote_cases) * 100`. Unknown remote values are reported separately and are never treated as non-remote. Remote input accepts the pipeline values `REMOTE` and `NON_REMOTE`, plus common boolean/numeric representations.
+
+The analytical unit is one unique `sub_conversation_id`. Categories use `kategori_kendala_ml_predicted` only when it is present; missing or invalid predictions are returned as `UNKNOWN_UNCLASSIFIED`. Ground-truth labels are intentionally not substituted into dashboard inference.
+
+Customer display names come from the session's `raw/chat/chat_mapping.json` only when `customer_name` is present. Otherwise the API returns a distinct `Unknown (<source_file>)` value to preserve source boundaries without inventing an identity. No conversation content or credential flag is returned.
+
+Time series use `start_time`; invalid or missing timestamps are excluded only from time-series records. Date filters use ISO `YYYY-MM-DD`, are inclusive, and apply consistently to every endpoint. Weekly rows start on Monday and use that Monday date as the label. Each response includes `dataset`, for example `{"type": "default", "session_id": null}` or `{"type": "session", "session_id": "..."}`. The default CSV is used only when `session_id` is omitted. An invalid session or a session without output returns `404`; it never falls back to the default dataset.
+
+An overview response has this shape:
+
+```json
+{
+  "session_id": "session_20260930_ab12cd",
+  "total_issues": 12,
+  "remote_rate": 42.86,
+  "top_issue": {"category": "TRANSAKSI_INPUT_DATA", "count": 5},
+  "category_distribution": [],
+  "analysis_period": {"start": "2026-09-01T09:00:00", "end": "2026-09-30T15:30:00"}
+}
+```
+
+Run all backend and analytics tests with:
+
+```bash
+python -m unittest discover -s tests
+```

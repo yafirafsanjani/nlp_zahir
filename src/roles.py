@@ -30,6 +30,12 @@ ROLE_MAP = {
     "CV Omega Sejahtera": "CLIENT",
     "riza Bravo Eterna": "CLIENT",
     "Rosaria / DAYARA": "CLIENT",
+    "Bee Jay Bakau Resort": "CLIENT",
+    "DAUD, BPK": "CLIENT",
+    "Hawaii Group, CV (Klien Jkt)": "CLIENT",
+    "Indah NIKI MAPAN / LIQI PLASTIK": "CLIENT",
+    "Klien,Widhi (Bali Aqua)": "CLIENT",
+    "Rio Permata Anugrah Utama": "CLIENT",
     "SYSTEM": "SYSTEM",
 }
 

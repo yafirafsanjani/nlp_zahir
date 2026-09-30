@@ -18,7 +18,7 @@ def is_safe_zip_member(member_name: str) -> bool:
     if clean_name.startswith('/'):
         return False
     
-    if ':' in clean_name and len(clean_name) > 1 and clean_name[1] == ':':
+    if ':' in clean_name:
         return False
     
     parts = Path(clean_name).parts

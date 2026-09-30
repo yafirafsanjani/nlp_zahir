@@ -46,10 +46,18 @@ def extract_customer_name(source_filename: str) -> str | None:
 def create_chat_mapping(detected_chats: list[dict], chat_identifiers: list[str] = None) -> dict:
     mapping = {}
     
+    filenames = [c.get('filename') for c in detected_chats]
+    has_duplicates = len(filenames) != len(set(filenames))
+
     for i, chat_info in enumerate(detected_chats):
         chat_id = chat_identifiers[i] if chat_identifiers and i < len(chat_identifiers) else 'chat_%d.txt' % (i + 1)
-        source_fn = chat_info.get('filename') or chat_info.get('rel_path', 'chat_%d.txt' % (i + 1))
-        cust_name = extract_customer_name(source_fn)
+        
+        if has_duplicates:
+            source_fn = chat_info.get('rel_path') or chat_info.get('filename', 'chat_%d.txt' % (i + 1))
+        else:
+            source_fn = chat_info.get('filename') or chat_info.get('rel_path', 'chat_%d.txt' % (i + 1))
+            
+        cust_name = extract_customer_name(chat_info.get('filename', source_fn))
         
         mapping[chat_id] = {
             'source_filename': source_fn,

@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 import shutil
 import tempfile
 import uuid
@@ -9,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 import zipfile
 
-from src.ingestion.validator import validate_zip_file
+from src.ingestion.validator import validate_zip_file, is_safe_zip_member, ZipValidationError
 from src.ingestion.chat_detector import detect_chat_files
 from src.ingestion.mapping import create_chat_mapping
 from src.ingestion.media_organizer import organize_media_files
@@ -45,10 +46,16 @@ def ingest_whatsapp_zip(
     warnings = []
 
     with tempfile.TemporaryDirectory(prefix='wa_ingest_') as tmp_dir:
-        tmp_path = Path(tmp_dir)
+        tmp_path = Path(tmp_dir).resolve()
 
         with zipfile.ZipFile(zip_p, 'r') as zf:
-            zf.extractall(tmp_path)
+            for member in zf.infolist():
+                if not is_safe_zip_member(member.filename):
+                    raise ZipValidationError('Terdeteksi potensi serangan path traversal pada member ZIP: %s' % member.filename)
+                target_file_path = (tmp_path / member.filename).resolve()
+                if not str(target_file_path).startswith(str(tmp_path)):
+                    raise ZipValidationError('Terdeteksi path traversal di luar target directory: %s' % member.filename)
+                zf.extract(member, tmp_path)
 
         detected_chats = detect_chat_files(tmp_path)
 
@@ -69,13 +76,6 @@ def ingest_whatsapp_zip(
             }
             return session_metadata
 
-        chat_identifiers = ['chat_%d.txt' % (i + 1) for i in range(len(detected_chats))]
-        chat_names = ['chat_%d' % (i + 1) for i in range(len(detected_chats))]
-
-        chat_mapping = create_chat_mapping(detected_chats, chat_identifiers)
-
-        assigned_media, unresolved_list = organize_media_files(tmp_path, detected_chats, chat_names)
-
         if clean_target:
             for old_txt in chat_target_dir.glob('chat_*.txt'):
                 try:
@@ -85,6 +85,32 @@ def ingest_whatsapp_zip(
             for item in media_target_dir.iterdir():
                 if item.is_dir():
                     shutil.rmtree(item, ignore_errors=True)
+            start_idx = 1
+            chat_mapping = {}
+        else:
+            existing_indices = []
+            for p in chat_target_dir.glob('chat_*.txt'):
+                m = re.match(r'^chat_(\d+)\.txt$', p.name, re.IGNORECASE)
+                if m:
+                    existing_indices.append(int(m.group(1)))
+            start_idx = (max(existing_indices) + 1) if existing_indices else 1
+
+            chat_mapping = {}
+            existing_mapping_file = chat_target_dir / 'chat_mapping.json'
+            if existing_mapping_file.exists():
+                try:
+                    with open(existing_mapping_file, 'r', encoding='utf-8') as f:
+                        chat_mapping = json.load(f)
+                except Exception:
+                    chat_mapping = {}
+
+        chat_identifiers = ['chat_%d.txt' % (start_idx + i) for i in range(len(detected_chats))]
+        chat_names = ['chat_%d' % (start_idx + i) for i in range(len(detected_chats))]
+
+        new_mapping = create_chat_mapping(detected_chats, chat_identifiers)
+        chat_mapping.update(new_mapping)
+
+        assigned_media, unresolved_list = organize_media_files(tmp_path, detected_chats, chat_names)
 
         copied_chat_files = []
         for i, chat_info in enumerate(detected_chats):
