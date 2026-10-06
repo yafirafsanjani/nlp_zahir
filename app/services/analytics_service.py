@@ -309,3 +309,102 @@ class AnalyticsService:
                 "top_issue": top["category"] if top else UNKNOWN_CATEGORY,
             })
         return {"session_id": session_id, "dataset": dataset, "period": period, "data": records}
+
+    def conversations(
+        self,
+        session_id: Optional[str] = None,
+        start_date: Optional[date] = None,
+        end_date: Optional[date] = None,
+        page: int = 1,
+        page_size: int = 20,
+        search: Optional[str] = None,
+        category: Optional[str] = None,
+        remote: Optional[str] = None,
+        client_response: Optional[str] = None,
+        match: Optional[str] = None,
+    ) -> dict[str, Any]:
+        data, mapping, dataset = self.load_data(session_id, start_date, end_date)
+        frame = data.copy()
+
+        if search:
+            query = search.strip().lower()
+            mask = (
+                frame["sub_conversation_id"].str.lower().str.contains(query, na=False)
+                | frame["conversation_id"].str.lower().str.contains(query, na=False)
+                | frame["source_file"].str.lower().str.contains(query, na=False)
+                | frame["_customer"].str.lower().str.contains(query, na=False)
+                | frame["full_conversation"].str.lower().str.contains(query, na=False)
+            )
+            frame = frame[mask]
+
+        if category:
+            cat_filter = category.strip()
+            frame = frame[
+                (frame["_category"] == cat_filter)
+                | (frame["kategori_kendala_ml_predicted"] == cat_filter)
+                | (frame["kategori_kendala_ground_truth"] == cat_filter)
+            ]
+
+        if remote:
+            rem_filter = remote.strip().upper()
+            frame = frame[
+                (frame["_remote_status"] == rem_filter)
+                | (frame["penanganan_remote"].str.upper() == rem_filter)
+            ]
+
+        if client_response:
+            resp_filter = client_response.strip().upper()
+            frame = frame[frame["client_response"].str.upper() == resp_filter]
+
+        if match:
+            match_filter = match.strip().upper()
+            frame = frame[frame["prediction_match"].str.upper() == match_filter]
+
+        total = len(frame)
+        page = max(1, page)
+        page_size = max(1, min(200, page_size)) if page_size > 0 else 20
+        total_pages = max(1, (total + page_size - 1) // page_size) if total > 0 else 1
+
+        start_idx = (page - 1) * page_size
+        end_idx = start_idx + page_size
+        page_slice = frame.iloc[start_idx:end_idx]
+
+        records = []
+        for _, row in page_slice.iterrows():
+            def _to_int(val: Any, default: int = 0) -> int:
+                try:
+                    return int(val)
+                except (ValueError, TypeError):
+                    return default
+
+            records.append({
+                "sub_conversation_id": str(row.get("sub_conversation_id", "")),
+                "conversation_id": str(row.get("conversation_id", "")),
+                "source_file": str(row.get("source_file", "")),
+                "customer": str(row.get("_customer", "Unknown")),
+                "start_time": str(row.get("start_time", "")),
+                "end_time": str(row.get("end_time", "")),
+                "total_messages": _to_int(row.get("total_messages")),
+                "client_messages_count": _to_int(row.get("client_messages_count")),
+                "admin_messages_count": _to_int(row.get("admin_messages_count")),
+                "has_media": str(row.get("has_media", "")).strip().lower() in ["true", "1"],
+                "contains_credentials": str(row.get("contains_credentials", "")).strip().lower() in ["true", "1"],
+                "client_response": str(row.get("client_response", "")),
+                "penanganan_remote": str(row.get("penanganan_remote", "")),
+                "kategori_kendala_ground_truth": str(row.get("kategori_kendala_ground_truth", "")),
+                "kategori_kendala_ml_predicted": str(row.get("kategori_kendala_ml_predicted", "")),
+                "prediction_confidence": str(row.get("prediction_confidence", "")),
+                "prediction_match": str(row.get("prediction_match", "")),
+                "full_conversation": str(row.get("full_conversation", "")),
+            })
+
+        return {
+            "session_id": dataset["session_id"],
+            "dataset": dataset,
+            "total": total,
+            "page": page,
+            "page_size": page_size,
+            "total_pages": total_pages,
+            "data": records,
+        }
+

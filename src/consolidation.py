@@ -31,15 +31,15 @@ def load_data():
     return cat_rows, norm_rows
 
 def build_full_conversation(msgs):
-    """Susun transkrip lengkap satu sub-percakapan, baris per pesan."""
+    """Susun transkrip lengkap satu sub-percakapan (satu baris rapi per record)."""
     lines = []
     for m in msgs:
         role = m.get("role") or m.get("pengirim", "")
         ts = f"{m.get('tanggal', '')} {m.get('waktu', '')}".strip()
-        text = (m.get("percakapan") or "").strip().replace("\n", " ")
+        text = (m.get("percakapan") or "").strip().replace("\r", " ").replace("\n", " ")
         prefix = f"[{ts}] {role}" if ts else f"[{role}]"
         lines.append(f"{prefix}: {text}")
-    return "\n".join(lines)
+    return " | ".join(lines)
 
 
 def consolidate_master_dataset(cat_rows, norm_rows):
@@ -125,10 +125,22 @@ def save_master_csv(records, output_path):
         "prediction_match",
         "full_conversation",
     ]
-    with open(output_path, "w", encoding="utf-8", newline="") as f:
+    # Simpan CSV dengan format UTF-8 BOM agar rapi saat dibuka di Microsoft Excel
+    with open(output_path, "w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(records)
+
+    # Simpan juga versi Excel (.xlsx) jika modul openpyxl / pandas tersedia
+    try:
+        import pandas as pd
+        xlsx_path = output_path.with_suffix(".xlsx")
+        df = pd.DataFrame(records)
+        with pd.ExcelWriter(xlsx_path, engine="openpyxl") as writer_excel:
+            df.to_excel(writer_excel, index=False, sheet_name="Master Conversations")
+    except Exception:
+        pass
+
     return output_path
 
 def validate(records):

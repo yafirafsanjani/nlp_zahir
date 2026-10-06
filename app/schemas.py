@@ -135,3 +135,34 @@ class TimeSeriesResponse(BaseModel):
     dataset: DatasetSchema
     period: str
     data: list[TimeSeriesItemSchema]
+
+class ConversationItemSchema(BaseModel):
+    sub_conversation_id: str
+    conversation_id: str
+    source_file: str
+    customer: str
+    start_time: str
+    end_time: str
+    total_messages: int
+    client_messages_count: int
+    admin_messages_count: int
+    has_media: bool
+    contains_credentials: bool
+    client_response: str
+    penanganan_remote: str
+    kategori_kendala_ground_truth: str
+    kategori_kendala_ml_predicted: str
+    prediction_confidence: str
+    prediction_match: str
+    full_conversation: str
+
+
+class ConversationsResponse(BaseModel):
+    session_id: Optional[str] = None
+    dataset: DatasetSchema
+    total: int
+    page: int
+    page_size: int
+    total_pages: int
+    data: list[ConversationItemSchema]
+

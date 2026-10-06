@@ -1,5 +1,6 @@
 import {
   CalendarRange,
+  Database,
   Headset,
   LayoutGrid,
   ListTree,
@@ -12,6 +13,7 @@ export type NavItem = { href: string; label: string; icon: LucideIcon }
 
 export const ANALYSIS_NAV: NavItem[] = [
   { href: '/', label: 'Overview', icon: LayoutGrid },
+  { href: '/conversations', label: 'Master Dataset', icon: Database },
   { href: '/issues', label: 'Issue Analysis', icon: ListTree },
   { href: '/remote', label: 'Remote Analysis', icon: Headset },
   { href: '/customers', label: 'Customer Analysis', icon: Users },

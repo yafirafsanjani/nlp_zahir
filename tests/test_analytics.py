@@ -206,5 +206,27 @@ class TestAnalyticsServiceAndApi(unittest.TestCase):
         self.assertEqual(response.json()["status"], "ok")
 
 
+
+    def test_conversations_endpoint_pagination_and_filter(self):
+        response = self.client.get("/api/conversations", params={"session_id": "session_one", "page": 1, "page_size": 2})
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
+        self.assertEqual(payload["page"], 1)
+        self.assertEqual(payload["page_size"], 2)
+        self.assertEqual(len(payload["data"]), 2)
+        self.assertGreaterEqual(payload["total"], 2)
+
+        # Test filtering by category
+        filtered = self.client.get("/api/conversations", params={"session_id": "session_one", "category": "CATEGORY_A"})
+        self.assertEqual(filtered.status_code, 200)
+        cat_payload = filtered.json()
+        for item in cat_payload["data"]:
+            self.assertEqual(item["kategori_kendala_ml_predicted"], "CATEGORY_A")
+
+    def test_conversations_download_endpoint(self):
+        response = self.client.get("/api/conversations/download", params={"session_id": "session_one", "format": "csv"})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("text/csv", response.headers.get("content-type", ""))
+
 if __name__ == "__main__":
     unittest.main()

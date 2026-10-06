@@ -1,5 +1,7 @@
 import { isCategory, type Period } from '@/lib/categories'
 import type {
+  ConversationsData,
+  ConversationsResponse,
   AnalyzeResponse,
   AnalyzeResult,
   ApiCategory,
@@ -193,3 +195,43 @@ export async function uploadAndAnalyze(file: File, onStep: (step: UploadStep) =>
   onStep('completed')
   return { session_id: analysis.session_id, status: analysis.status, message: analysis.message }
 }
+
+
+export type ConversationsFilter = {
+  page?: number
+  pageSize?: number
+  search?: string
+  category?: string
+  remote?: string
+  clientResponse?: string
+  match?: string
+}
+
+export async function fetchConversations(
+  sessionId: string | null,
+  filters?: ConversationsFilter
+): Promise<ConversationsData> {
+  const base = API_BASE_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000')
+  const url = new URL('/api/conversations', base)
+  if (sessionId) url.searchParams.set('session_id', sessionId)
+  if (filters?.page) url.searchParams.set('page', String(filters.page))
+  if (filters?.pageSize) url.searchParams.set('page_size', String(filters.pageSize))
+  if (filters?.search) url.searchParams.set('search', filters.search)
+  if (filters?.category) url.searchParams.set('category', filters.category)
+  if (filters?.remote) url.searchParams.set('remote', filters.remote)
+  if (filters?.clientResponse) url.searchParams.set('client_response', filters.clientResponse)
+  if (filters?.match) url.searchParams.set('match', filters.match)
+
+  const response = await fetch(url, { headers: { Accept: 'application/json' } })
+  if (!response.ok) throw new ApiError(await errorMessage(response))
+  return (await response.json()) as ConversationsData
+}
+
+export function getDownloadUrl(sessionId: string | null, format: 'csv' | 'xlsx' = 'csv'): string {
+  const base = API_BASE_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000')
+  const url = new URL('/api/conversations/download', base)
+  if (sessionId) url.searchParams.set('session_id', sessionId)
+  url.searchParams.set('format', format)
+  return url.toString()
+}
+

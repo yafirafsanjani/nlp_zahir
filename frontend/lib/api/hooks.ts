@@ -3,9 +3,10 @@
 import useSWR from 'swr'
 import { useDataset } from '@/components/providers/dataset-provider'
 import type { Period } from '@/lib/categories'
-import { fetchAnalytics, type ApiKey, type ApiPath } from './client'
+import { fetchAnalytics, fetchConversations, type ApiKey, type ApiPath, type ConversationsFilter } from './client'
 import type {
   CustomersData,
+  ConversationsData,
   IssuesData,
   OverviewData,
   RemoteData,
@@ -27,3 +28,29 @@ export const useRemote = () => useAnalytics<RemoteData>('/api/remote')
 export const useCustomers = () => useAnalytics<CustomersData>('/api/customers')
 export const useTimeSeries = (period: Period) =>
   useAnalytics<TimeSeriesData>('/api/time-series', period)
+
+
+export function useConversations(filters?: ConversationsFilter) {
+  const { sessionId } = useDataset()
+  const key = [
+    '/api/conversations',
+    sessionId,
+    filters?.page ?? 1,
+    filters?.pageSize ?? 20,
+    filters?.search ?? '',
+    filters?.category ?? '',
+    filters?.remote ?? '',
+    filters?.clientResponse ?? '',
+    filters?.match ?? '',
+  ] as const
+
+  return useSWR<ConversationsData, Error>(
+    key,
+    () => fetchConversations(sessionId, filters),
+    {
+      revalidateOnFocus: false,
+      keepPreviousData: true,
+    }
+  )
+}
+

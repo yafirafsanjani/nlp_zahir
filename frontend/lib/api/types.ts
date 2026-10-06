@@ -171,3 +171,38 @@ export type TimePoint = {
 export type TimeSeriesData = { period: Period; points: TimePoint[] }
 export type UploadStep = 'uploading' | 'validating' | 'processing' | 'nlp' | 'updating' | 'completed'
 export type AnalyzeResult = { session_id: string; status: string; message: string | null }
+
+
+export type ConversationRecord = {
+  sub_conversation_id: string
+  conversation_id: string
+  source_file: string
+  customer: string
+  start_time: string
+  end_time: string
+  total_messages: number
+  client_messages_count: number
+  admin_messages_count: number
+  has_media: boolean
+  contains_credentials: boolean
+  client_response: string
+  penanganan_remote: string
+  kategori_kendala_ground_truth: string
+  kategori_kendala_ml_predicted: string
+  prediction_confidence: string
+  prediction_match: string
+  full_conversation: string
+}
+
+export type ConversationsResponse = {
+  session_id: string | null
+  dataset: DatasetInfo
+  total: number
+  page: number
+  page_size: number
+  total_pages: number
+  data: ConversationRecord[]
+}
+
+export type ConversationsData = ConversationsResponse
+
